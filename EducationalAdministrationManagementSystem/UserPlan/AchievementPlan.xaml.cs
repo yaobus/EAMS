@@ -431,9 +431,10 @@ namespace EducationalAdministrationManagementSystem.UserPlan
 
             }
 
+            //加载该学生的课程
             LoadSelectCourse(majorId);
 
-
+            //加载该学生的头像
             LoadImg(StudentList[StudentListView.SelectedIndex].StudentIndex);
 
             var student = StudentListView.SelectedItem as ViewMode.ViewMode.StudentInfoViewMode;
@@ -450,9 +451,7 @@ namespace EducationalAdministrationManagementSystem.UserPlan
         /// </summary>
         private void LoadSelectCourse(string majorId)
         {
-
-
-
+            
             //清空专业列表
             SelectCourseList.Clear();
 
@@ -491,6 +490,23 @@ namespace EducationalAdministrationManagementSystem.UserPlan
                         string courseId = reader.GetString("COURSE_ID");
                         string courseName = reader.GetString("COURSE_NAME");
                         int score = Convert.ToInt32(reader.GetString("SCORE"));
+
+                        //TODO 加载课程对应的成绩，索引COURSE_INDEX+学生ID
+                        try
+                        {
+
+                            string studentCurriculumIndex =
+                                EncryptionDecryptionFunction.MD5EncryptionDecryption.MyTextMD5(StudentId.Text + courseId, 8);
+
+
+
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e);
+                            
+                        }
+
 
 
 
@@ -614,13 +630,20 @@ namespace EducationalAdministrationManagementSystem.UserPlan
         private void CurriculumScoreListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var coures = CurriculumScoreListView.SelectedItem as ViewMode.ViewMode.SelectCurriculumViewMode;
-            CurriculumId.Text = coures.CourseId;
-            CurriculumName.Text = coures.CourseName;
-            CurriculumCreditTextBox.Text = coures.Score.ToString();
 
-            string studentCurriculumIndex =
-                EncryptionDecryptionFunction.MD5EncryptionDecryption.MyTextMD5(StudentId.Text + coures.CourseId, 8);
-            LoadStudentScore(studentCurriculumIndex);
+            if (coures != null)
+            {
+
+                CurriculumId.Text = coures.CourseId;
+                CurriculumName.Text = coures.CourseName;
+                CurriculumCreditTextBox.Text = coures.Score.ToString();
+
+                string studentCurriculumIndex =
+                    EncryptionDecryptionFunction.MD5EncryptionDecryption.MyTextMD5(StudentId.Text + coures.CourseId, 8);
+                LoadStudentScore(studentCurriculumIndex);
+            }
+
+
 
 
         }

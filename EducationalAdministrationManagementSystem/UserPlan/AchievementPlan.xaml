@@ -311,7 +311,7 @@
                         Margin="0,5"
                         x:Name="CurriculumScoreListView"
                         BorderThickness="1"
-SelectionChanged="CurriculumScoreListView_OnSelectionChanged"
+                        SelectionChanged="CurriculumScoreListView_OnSelectionChanged"
                         Style="{DynamicResource MaterialDesignListView}">
 
                         <ListView.View >
