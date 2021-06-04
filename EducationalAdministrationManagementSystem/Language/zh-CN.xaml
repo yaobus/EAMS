@@ -1,0 +1,40 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+
+
+
+    <s:String x:Key="MainTitle">教务管理系统</s:String>
+    <s:String x:Key="Login">教务管理系统-登陆</s:String>
+
+    <s:String x:Key="DbHost">数据库主机：</s:String>
+    <s:String x:Key="DbPort">数据库端口：</s:String>
+    <s:String x:Key="DbUser">数据库用户：</s:String>
+    <s:String x:Key="DbPassword">数据库密码：</s:String>
+    <s:String x:Key="DbName">数据库名称：</s:String>
+
+    <s:String x:Key="Welcome">欢迎</s:String>
+
+    <s:String x:Key="Overview">全局总览</s:String>
+    <s:String x:Key="DepartmentManagement">院系专业</s:String>
+    <s:String x:Key="CoursePool">全部课程</s:String>
+    <s:String x:Key="Curriculum">课程规划</s:String>
+    <s:String x:Key="TeacherManagement">教师管理</s:String>
+    <s:String x:Key="StudentInfo">学籍管理</s:String>
+    <s:String x:Key="StudentAchievement">成绩管理</s:String>
+    <s:String x:Key="TextualResearch">考籍管理</s:String>
+    <s:String x:Key="PrizeInfo">奖惩信息</s:String>
+    <s:String x:Key="CostInfo">费用信息</s:String>
+
+    <s:String x:Key="Setting">系统设置</s:String>
+    <s:String x:Key="UserManagement">用户管理</s:String>
+    <s:String x:Key="About">关于程序</s:String>
+    <s:String x:Key="Exit">退出程序</s:String>
+
+    <s:String x:Key="MissionView">任务大厅</s:String>
+    <s:String x:Key="LaunchMission">我发起的任务</s:String>
+    <s:String x:Key="HireMission">已接受的任务</s:String>
+    <s:String x:Key="ProjectView">项目总览</s:String>
+    <s:String x:Key="MyProject">我的项目</s:String>
+    <s:String x:Key="CooperateProject">协作项目</s:String>
+</ResourceDictionary>
