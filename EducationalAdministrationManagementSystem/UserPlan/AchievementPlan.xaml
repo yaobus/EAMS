@@ -166,6 +166,7 @@
                         Margin="5">
 
                         <Image
+                            x:Name="Image"
                             Source="/Resources/Contact.png"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"/>
@@ -310,7 +311,7 @@
                         Margin="0,5"
                         x:Name="CurriculumScoreListView"
                         BorderThickness="1"
-                        SelectionChanged="StudentListView_OnSelectionChanged"
+SelectionChanged="CurriculumScoreListView_OnSelectionChanged"
                         Style="{DynamicResource MaterialDesignListView}">
 
                         <ListView.View >

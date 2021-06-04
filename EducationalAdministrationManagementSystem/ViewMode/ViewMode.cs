@@ -225,15 +225,15 @@ namespace EducationalAdministrationManagementSystem.ViewMode
             public string Id { get; set; }
             public string Name { get; set; }
            
+            public string StudentIndex { get; set; }
 
 
-
-            public StudentInfoViewMode(int index, string id, string name)
+            public StudentInfoViewMode(int index, string id, string name,string studentIndex)
             {
                 Index = index;
                 Id = id;
                 Name = name;
-
+                StudentIndex = studentIndex;
             }
 
 
