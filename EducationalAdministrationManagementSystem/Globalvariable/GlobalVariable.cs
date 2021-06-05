@@ -70,6 +70,9 @@ namespace GloableVariable
         public static string SelectTeacherId = null;
 
 
+
+
+
         //----------------------学籍信息编辑，修改-------------------------
         //当前是新建还是编辑用户，特征码(学籍ID)
         public static int TextualResearchId = 0;

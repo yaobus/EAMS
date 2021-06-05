@@ -19,6 +19,7 @@ using GloableVariable;
 using EducationalAdministrationManagementSystem.ViewMode;
 using Microsoft.Win32;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace EducationalAdministrationManagementSystem
 {
@@ -239,8 +240,8 @@ namespace EducationalAdministrationManagementSystem
             StudentTypeCombobox.ItemsSource = studentTypeList;
 
 
-
-
+            //加载教师数据
+            LoadTeacherData();
         }
 
         /// <summary>
@@ -789,6 +790,7 @@ namespace EducationalAdministrationManagementSystem
         }
 
 
+
         /// <summary>
         /// 浏览证件照图片
         /// </summary>
@@ -895,6 +897,32 @@ namespace EducationalAdministrationManagementSystem
             {
                 MajorNameComboBox.SelectedIndex = -1;
             }
+
+
+        }
+
+
+
+
+        private void LoadTeacherData()
+        {
+            List<string> teacherList = new List<string>();
+
+            if (DbConnect.MySqlConnection.State == ConnectionState.Closed)
+            {
+                DbConnect.MySqlConnection.Open(); //连接数据库
+            }
+            string sql = "SELECT * FROM teacher_info";
+            MySqlDataReader reader = DbConnect.CarrySqlCmd(sql);
+
+            while (reader.Read())
+            {
+                string name = reader.GetString("TEACHER_NAME");
+                teacherList.Add(name);
+            }
+
+            DbConnect.MySqlConnection.Close();
+            TeacherCombobox.ItemsSource = teacherList;
 
 
         }

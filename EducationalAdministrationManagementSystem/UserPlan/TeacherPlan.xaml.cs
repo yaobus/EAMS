@@ -204,6 +204,10 @@ namespace EducationalAdministrationManagementSystem.UserPlan
 
                 }
 
+                TeacherIdTextBox.Text = "";
+                TeacherNameTextBox.Text = "";
+                TeacherSexTextBox.Text = "";
+                TeacherNoteTextBox.Text = "";
 
                 //清空选择，防止误操作
                 GlobalVariable.SelectDepartmentId = null;

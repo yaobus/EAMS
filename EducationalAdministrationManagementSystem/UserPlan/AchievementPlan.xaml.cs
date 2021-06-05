@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -32,7 +33,20 @@ namespace EducationalAdministrationManagementSystem.UserPlan
 
             LoadDepartmentData();
             LoadDefaultImage(); //加载默认头像图像
+            DataBinding();
+            Image.Source = DefaultBitmapImage;
         }
+
+        /// <summary>
+        /// 数据绑定
+        /// </summary>
+        public void DataBinding()
+        {
+            StudentListView.ItemsSource = StudentList;
+            CurriculumScoreListView.ItemsSource = CurriculumScoreList;
+
+        }
+
 
         /// <summary>
         /// 加载学院数据
@@ -229,7 +243,8 @@ namespace EducationalAdministrationManagementSystem.UserPlan
 
 
                     MajorCombobox.ItemsSource = majorNameList;
-                    //SystemCombobox.SelectedIndex = 0;
+                    MajorCombobox.SelectedIndex = -1;
+
                     DbConnect.MySqlConnection.Close();
 
                 }
@@ -261,6 +276,10 @@ namespace EducationalAdministrationManagementSystem.UserPlan
             };
 
 
+
+
+
+
         /// <summary>
         /// 选择学院
         /// </summary>
@@ -269,7 +288,11 @@ namespace EducationalAdministrationManagementSystem.UserPlan
         private void DepartmentCombobox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SystemCombobox.SelectedIndex = -1;
-
+            MajorCombobox.SelectedIndex = -1;
+            SystemList.Clear();
+            MajorInfoList.Clear();
+            StudentList.Clear();
+            ClearData();
             if (DepartmentList != null)
             {
                 //记录当前选择的院部ID
@@ -298,8 +321,10 @@ namespace EducationalAdministrationManagementSystem.UserPlan
         /// <param name="e"></param>
         private void SystemCombobox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MajorCombobox.SelectedIndex = -1;
-
+            //MajorCombobox.SelectedIndex = -1;
+            MajorInfoList.Clear();
+            StudentList.Clear();
+            ClearData();
             if (SystemList != null)
             {
 
@@ -308,7 +333,7 @@ namespace EducationalAdministrationManagementSystem.UserPlan
                     //记录当前选择的院部ID
                     string systemInfoId = SystemList[SystemCombobox.SelectedIndex].Id;
 
-                    //加载系部数据到系部列表
+                    //加载系专业数据
                     LoadMajor(systemInfoId);
                 }
                 catch (Exception exception)
@@ -328,6 +353,9 @@ namespace EducationalAdministrationManagementSystem.UserPlan
         /// <param name="e"></param>
         private void MajorCombobox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            StudentList.Clear();
+            ClearData();
+
             try
             {
                 string majorId = MajorInfoList[MajorCombobox.SelectedIndex].Num;
@@ -387,8 +415,8 @@ namespace EducationalAdministrationManagementSystem.UserPlan
                 }
 
 
-                StudentListView.ItemsSource = StudentList;
 
+                StudentListView.SelectedIndex = -1;
 
 
                 DbConnect.MySqlConnection.Close();
@@ -404,7 +432,7 @@ namespace EducationalAdministrationManagementSystem.UserPlan
 
         public ObservableCollection<ViewMode.ViewMode.StudentInfoViewMode> StudentList =
             new ObservableCollection<ViewMode.ViewMode.StudentInfoViewMode>()
-                { };
+            { };
 
 
 
@@ -418,11 +446,29 @@ namespace EducationalAdministrationManagementSystem.UserPlan
         /// <param name="e"></param>
         private void StudentListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            ClearData();
             string majorId;
             try
             {
                 majorId = MajorInfoList[MajorCombobox.SelectedIndex].Num;
+
+                var student = StudentListView.SelectedItem as ViewMode.ViewMode.StudentInfoViewMode;
+
+                if (student!=null)
+                {
+
+                    StudentName.Text = student.Name;
+                    StudentId.Text = student.Id;
+
+                    //加载该学生的头像
+                    LoadImg(StudentList[StudentListView.SelectedIndex].StudentIndex);
+
+                    //加载该学生的课程
+                    LoadSelectCourse(majorId);
+                }
+
+
+
             }
             catch (Exception)
             {
@@ -431,16 +477,11 @@ namespace EducationalAdministrationManagementSystem.UserPlan
 
             }
 
-            //加载该学生的课程
-            LoadSelectCourse(majorId);
-
-            //加载该学生的头像
-            LoadImg(StudentList[StudentListView.SelectedIndex].StudentIndex);
 
 
-            var student = StudentListView.SelectedItem as ViewMode.ViewMode.StudentInfoViewMode;
-            StudentName.Text = student.Name;
-            StudentId.Text = student.Id;
+
+
+
 
 
 
@@ -461,19 +502,27 @@ namespace EducationalAdministrationManagementSystem.UserPlan
             //清空专业列表
             CurriculumScoreList.Clear();
 
+
+
+
             if (GlobalVariable.DbConnectInfo != null)
             {
-                try
+                if (DbConnect.MySqlConnection.State == ConnectionState.Closed)
                 {
-                    DbConnect.MySqlConnection = DbConnect.ConnectionMysql(GlobalVariable.DbConnectInfo);
-
                     DbConnect.MySqlConnection.Open(); //连接数据库
+                }
 
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("数据库连接失败!请检查数据库配置");
-                }
+                //try
+                //{
+                //    DbConnect.MySqlConnection = DbConnect.ConnectionMysql(GlobalVariable.DbConnectInfo);
+
+                //    DbConnect.MySqlConnection.Open(); //连接数据库
+
+                //}
+                //catch (Exception)
+                //{
+                //    MessageBox.Show("数据库连接失败!请检查数据库配置");
+                //}
 
 
 
@@ -485,8 +534,8 @@ namespace EducationalAdministrationManagementSystem.UserPlan
                     MySqlDataReader reader = DbConnect.CarrySqlCmd(sql);
 
 
+                    List<string> indexList = new List<string>();
 
-                    //   SystemList.Clear();
                     int index = 0;
                     while (reader.Read())
                     {
@@ -497,51 +546,68 @@ namespace EducationalAdministrationManagementSystem.UserPlan
                         string courseName = reader.GetString("COURSE_NAME");
                         string score = reader.GetString("SCORE");
 
-                        //TODO 加载课程对应的成绩，索引COURSE_INDEX+学生ID
-
-                        string dailyScore = "";
-
-                        string lastScore="";
-
-                        string creditSocre="";
-
-
                         string studentCurriculumIndex =
                             EncryptionDecryptionFunction.MD5EncryptionDecryption.MyTextMD5(StudentId.Text + courseId, 8);
 
+                        indexList.Add(studentCurriculumIndex);
 
-                         sql = string.Format("SELECT * FROM score_info WHERE SCORE_INDEX = '{0}'", studentCurriculumIndex);
+                        string dailyScore = "";
 
-                       
+                        string lastScore = "";
 
-                        //记录不存在则先增加记录并显示
-                        if (DbConnect.CountDataNumber(sql) < 1)
-                        {
-                            sql = string.Format("INSERT INTO score_info  VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", studentCurriculumIndex, StudentId.Text, CurriculumId.Text, "0", "0", "0");
-
-                            DbConnect.ModifySql(sql);
-
-                        }
-                        //TODO
-                        else//记录存在则加载数据
-                        {
-                            
-                        }
-
-
-
+                        string creditSocre = "";
 
 
                         CurriculumScoreList.Add(new ViewMode.ViewMode.CurriculumScoreViewMode(index, courseIndex, majorId,
                             courseId, courseName, score, dailyScore, lastScore, creditSocre));
 
+                    }
 
+                    reader.Close();
+
+                    for (int i = 0; i < indexList.Count(); i++)
+                    {
+
+                        //加载该学生对应的科目成绩
+
+                        string sql2 = string.Format("SELECT * FROM score_info WHERE SCORE_INDEX = '{0}'", indexList[i]);
+
+                        //记录不存在则先增加记录并显示
+                        if (DbConnect.CountDataNumber(sql2) < 1)
+                        {
+                            // DbConnect.MySqlConnection.State==
+
+
+
+                            sql2 = string.Format("INSERT INTO score_info  VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", indexList[i], StudentId.Text, CurriculumScoreList[i].CourseId, "0", "0", "0");
+                            Console.WriteLine(sql2);
+                            _ = DbConnect.ModifySql(sql2);
+
+                        }
+                        else//记录存在则加载数据
+                        {
+                            MySqlDataReader reader2 = DbConnect.CarrySqlCmd(sql2);
+                            if (reader2.Read())
+                            {
+                                string dailyScore = reader2.GetString("DAILY_SCORE");
+                                string lastScore = reader2.GetString("LAST_SOCRE");
+                                string creditSocre = reader2.GetString("CREDIT_SOCRE");
+
+                                CurriculumScoreList[i].DailyScore = dailyScore;
+                                CurriculumScoreList[i].LastScore = lastScore;
+                                CurriculumScoreList[i].CreditScore = creditSocre;
+                            }
+
+                            reader2.Close();
+                        }
 
                     }
 
+
+
                     DbConnect.MySqlConnection.Close();
 
-                    CurriculumScoreListView.ItemsSource = CurriculumScoreList;
+
 
                 }
                 else
@@ -568,7 +634,7 @@ namespace EducationalAdministrationManagementSystem.UserPlan
 
         public ObservableCollection<ViewMode.ViewMode.CurriculumScoreViewMode> CurriculumScoreList =
             new ObservableCollection<ViewMode.ViewMode.CurriculumScoreViewMode>()
-                { };
+            { };
 
 
 
@@ -622,7 +688,7 @@ namespace EducationalAdministrationManagementSystem.UserPlan
                     DataSet dataSet = new DataSet();
                     dataAdapter.Fill(dataSet);
                     DbConnect.MySqlConnection.Close();
-                    byte[] imgBytes = (Byte[]) dataSet.Tables[0].Rows[0]["IMG"];
+                    byte[] imgBytes = (Byte[])dataSet.Tables[0].Rows[0]["IMG"];
                     Image.Source = GlobalFunction.ImageClass.BytesToBitmapImage(imgBytes);
                     GlobalVariable.ImageBytes = imgBytes;
                 }
@@ -652,16 +718,21 @@ namespace EducationalAdministrationManagementSystem.UserPlan
 
         private void CurriculumScoreListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var coures = CurriculumScoreListView.SelectedItem as ViewMode.ViewMode.SelectCurriculumViewMode;
+            var coures = CurriculumScoreListView.SelectedItem as ViewMode.ViewMode.CurriculumScoreViewMode;
 
             if (coures != null)
             {
 
                 CurriculumId.Text = coures.CourseId;
                 CurriculumName.Text = coures.CourseName;
-                CurriculumCreditTextBox.Text = coures.Score.ToString();
+                CurriculumCreditTextBox.Text = coures.Score;
+                DailyTextBox.Text = coures.DailyScore;
+                LastTextBox.Text = coures.LastScore;
+                CreditTextBox.Text = coures.CreditScore;
+
 
             }
+
 
 
 
@@ -669,5 +740,90 @@ namespace EducationalAdministrationManagementSystem.UserPlan
         }
 
 
+        /// <summary>
+        /// 清除页面数据
+        /// </summary>
+        private void ClearData()
+        {
+          
+            CurriculumScoreList.Clear();
+            Image.Source = DefaultBitmapImage;
+            StudentName.Text = "";
+            StudentId.Text = "";
+            CurriculumName.Text = "";
+            CurriculumCreditTextBox.Text = "";
+            DailyTextBox.Text = "";
+            LastTextBox.Text = "";
+            CreditTextBox.Text = "";
+
+        }
+
+
+
+
+        /// <summary>
+        /// 保存学分数据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SaveButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            double dailyScore =0;
+            double lastScore = 0;
+            double credit = 0;
+            try
+            {
+                dailyScore = Convert.ToDouble(DailyTextBox.Text.Trim());
+                lastScore = Convert.ToDouble(LastTextBox.Text.Trim());
+                credit = Convert.ToDouble(CreditTextBox.Text.Trim());
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+               
+            }
+
+
+
+
+
+
+            if (credit > 0 && (dailyScore == 0 || lastScore == 0))
+            {
+                MessageBox.Show("缺少平时成绩和期末成绩，无法填写学分");
+            }
+            else
+            {
+                if (credit >Convert.ToDouble(CurriculumCreditTextBox.Text.Trim()))
+                {
+                    MessageBox.Show("该课程获得的学分不得超过课程最高学分");
+                }
+                else
+                {
+                    string index = 
+                        EncryptionDecryptionFunction.MD5EncryptionDecryption.MyTextMD5(StudentId.Text + CurriculumId.Text, 8);
+
+                    string sql = string.Format("UPDATE score_info SET  DAILY_SCORE='{0}',LAST_SOCRE='{1}',CREDIT_SOCRE='{2}' WHERE SCORE_INDEX='{3}'",dailyScore,lastScore,credit,index);
+                    Console.WriteLine(sql);
+                    DbConnect.ModifySql(sql);
+                    //加载该学生的课程
+                   
+                    string majorId = MajorInfoList[MajorCombobox.SelectedIndex].Num;
+                    LoadSelectCourse(majorId);
+
+                }
+            }
+
+            
+
+
+
+
+           
+
+
+
+
+        }
     }
 }

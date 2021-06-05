@@ -74,10 +74,10 @@ namespace EducationalAdministrationManagementSystem.UserPlan
                 while (reader.Read())
                 {
                     index += 1;
-                    string id = reader.GetString("DEPARTMENT_INDEX").ToString();
-                    string name = Base64Conver.Base64Str2Text(reader.GetString("DEPARTMENT_NAME").ToString());
-                    string note = Base64Conver.Base64Str2Text(reader.GetString("DEPARTMENT_NOTE").ToString());
-                    string delStatus = reader.GetString("DELSTATUS").ToString();
+                    string id = reader.GetString("DEPARTMENT_INDEX");
+                    string name = Base64Conver.Base64Str2Text(reader.GetString("DEPARTMENT_NAME"));
+                    string note = Base64Conver.Base64Str2Text(reader.GetString("DEPARTMENT_NOTE"));
+                    string delStatus = reader.GetString("DELSTATUS");
                     DepartmentList.Add(new ViewMode.ViewMode.DepartmentInfo(index, id, name, note, delStatus));
                 }
 

@@ -29,10 +29,11 @@ namespace EducationalAdministrationManagementSystem
         /// <returns></returns>
         public static MySqlDataReader CarrySqlCmd(string sql)
         {
-            MySqlCommand cmdCommand = new MySqlCommand(sql, MySqlConnection);
-            MySqlDataReader reader = cmdCommand.ExecuteReader();
-
-            return reader;
+            using (MySqlCommand cmdCommand = new MySqlCommand(sql, MySqlConnection))
+            {
+                var reader = cmdCommand.ExecuteReader();
+                return reader;
+            }
 
         }
 
@@ -73,18 +74,18 @@ namespace EducationalAdministrationManagementSystem
 
             MySqlConnection.Open(); //连接数据库
 
-
-
             MySqlDataReader reader = CarrySqlCmd(sql);
 
 
             if (reader.Read())
             {
+                reader.Close();
              return 1;
             }
             else
             {
-              return 0;  
+                reader.Close();
+                return 0;  
             }
 
 

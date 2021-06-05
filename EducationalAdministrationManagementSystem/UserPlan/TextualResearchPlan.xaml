@@ -96,21 +96,22 @@
                                     <TextBlock Text="删除记录" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
                                 </StackPanel>
                             </Button>
-<!--
+
                             <Button
-                            x:Name="SaveButton"
+                            x:Name="RefreshButton"
                             Margin="0,5"
+                            Click="RefreshButton_OnClick"
                             Style="{StaticResource MaterialDesignOutlinedButton}"
-                            ToolTip="保存正在编辑的这条记录" >
+                            ToolTip="修改数据后需要手动刷新列表" >
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
-                                    <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"></materialDesign:PackIcon>
-                                    <TextBlock Text="保存记录" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                                    <materialDesign:PackIcon Kind="Refresh" Width="20" Height="20"></materialDesign:PackIcon>
+                                    <TextBlock Text="刷新列表" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
                                 </StackPanel>
 
 
                             </Button>
 
--->
+
 
                         </StackPanel>
 
