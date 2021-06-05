@@ -306,6 +306,56 @@ namespace EducationalAdministrationManagementSystem.ViewMode
         }
 
 
+
+        /// <summary>
+        /// 已选择课程及分数数据类型
+        /// </summary>
+        public class CurriculumScoreViewMode
+        {
+            public int Index { get; set; }
+
+            public string CourseIndex { get; set; }
+            public string MajorId { get; set; }
+
+            public string CourseId { get; set; }
+
+            public string CourseName { get; set; }
+
+            public string Score { get; set; }
+
+            public string DailyScore { get; set; }
+
+            public string LastScore { get; set; }
+
+            public string CreditScore { get; set; }
+
+
+
+            public CurriculumScoreViewMode(int index, string courseIndex, string majorId, string courseId, string courseName, string score,string dailyScore,string lastScore,string creditScore)
+            {
+                Index = index;
+                CourseIndex = courseIndex;
+                MajorId = majorId;
+                CourseId = courseId;
+                CourseName = courseName;
+                Score = score;
+                DailyScore = dailyScore;
+                LastScore = lastScore;
+                CreditScore = creditScore;
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+
         /// <summary>
         /// 自定义教师数据类型
         /// </summary>

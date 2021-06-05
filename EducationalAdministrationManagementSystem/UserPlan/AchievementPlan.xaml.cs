@@ -418,7 +418,7 @@ namespace EducationalAdministrationManagementSystem.UserPlan
         /// <param name="e"></param>
         private void StudentListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SelectCourseList.Clear();
+            
             string majorId;
             try
             {
@@ -437,12 +437,18 @@ namespace EducationalAdministrationManagementSystem.UserPlan
             //加载该学生的头像
             LoadImg(StudentList[StudentListView.SelectedIndex].StudentIndex);
 
-            var student = StudentListView.SelectedItem as ViewMode.ViewMode.StudentInfoViewMode;
 
+            var student = StudentListView.SelectedItem as ViewMode.ViewMode.StudentInfoViewMode;
             StudentName.Text = student.Name;
             StudentId.Text = student.Id;
 
+
+
+
         }
+
+
+
 
 
 
@@ -451,9 +457,9 @@ namespace EducationalAdministrationManagementSystem.UserPlan
         /// </summary>
         private void LoadSelectCourse(string majorId)
         {
-            
+
             //清空专业列表
-            SelectCourseList.Clear();
+            CurriculumScoreList.Clear();
 
             if (GlobalVariable.DbConnectInfo != null)
             {
@@ -489,29 +495,45 @@ namespace EducationalAdministrationManagementSystem.UserPlan
                         majorId = reader.GetString("MAJOR_ID");
                         string courseId = reader.GetString("COURSE_ID");
                         string courseName = reader.GetString("COURSE_NAME");
-                        int score = Convert.ToInt32(reader.GetString("SCORE"));
+                        string score = reader.GetString("SCORE");
 
                         //TODO 加载课程对应的成绩，索引COURSE_INDEX+学生ID
-                        try
+
+                        string dailyScore = "";
+
+                        string lastScore="";
+
+                        string creditSocre="";
+
+
+                        string studentCurriculumIndex =
+                            EncryptionDecryptionFunction.MD5EncryptionDecryption.MyTextMD5(StudentId.Text + courseId, 8);
+
+
+                         sql = string.Format("SELECT * FROM score_info WHERE SCORE_INDEX = '{0}'", studentCurriculumIndex);
+
+                       
+
+                        //记录不存在则先增加记录并显示
+                        if (DbConnect.CountDataNumber(sql) < 1)
                         {
+                            sql = string.Format("INSERT INTO score_info  VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", studentCurriculumIndex, StudentId.Text, CurriculumId.Text, "0", "0", "0");
 
-                            string studentCurriculumIndex =
-                                EncryptionDecryptionFunction.MD5EncryptionDecryption.MyTextMD5(StudentId.Text + courseId, 8);
-
-
+                            DbConnect.ModifySql(sql);
 
                         }
-                        catch (Exception e)
+                        //TODO
+                        else//记录存在则加载数据
                         {
-                            Console.WriteLine(e);
                             
                         }
 
 
 
 
-                        SelectCourseList.Add(new ViewMode.ViewMode.SelectCurriculumViewMode(index, courseIndex, majorId,
-                            courseId, courseName, score));
+
+                        CurriculumScoreList.Add(new ViewMode.ViewMode.CurriculumScoreViewMode(index, courseIndex, majorId,
+                            courseId, courseName, score, dailyScore, lastScore, creditSocre));
 
 
 
@@ -519,7 +541,7 @@ namespace EducationalAdministrationManagementSystem.UserPlan
 
                     DbConnect.MySqlConnection.Close();
 
-                    CurriculumScoreListView.ItemsSource = SelectCourseList;
+                    CurriculumScoreListView.ItemsSource = CurriculumScoreList;
 
                 }
                 else
@@ -544,8 +566,8 @@ namespace EducationalAdministrationManagementSystem.UserPlan
 
         }
 
-        public ObservableCollection<ViewMode.ViewMode.SelectCurriculumViewMode> SelectCourseList =
-            new ObservableCollection<ViewMode.ViewMode.SelectCurriculumViewMode>()
+        public ObservableCollection<ViewMode.ViewMode.CurriculumScoreViewMode> CurriculumScoreList =
+            new ObservableCollection<ViewMode.ViewMode.CurriculumScoreViewMode>()
                 { };
 
 
@@ -627,6 +649,7 @@ namespace EducationalAdministrationManagementSystem.UserPlan
         }
 
 
+
         private void CurriculumScoreListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var coures = CurriculumScoreListView.SelectedItem as ViewMode.ViewMode.SelectCurriculumViewMode;
@@ -638,9 +661,6 @@ namespace EducationalAdministrationManagementSystem.UserPlan
                 CurriculumName.Text = coures.CourseName;
                 CurriculumCreditTextBox.Text = coures.Score.ToString();
 
-                string studentCurriculumIndex =
-                    EncryptionDecryptionFunction.MD5EncryptionDecryption.MyTextMD5(StudentId.Text + coures.CourseId, 8);
-                LoadStudentScore(studentCurriculumIndex);
             }
 
 
@@ -649,30 +669,5 @@ namespace EducationalAdministrationManagementSystem.UserPlan
         }
 
 
-        /// <summary>
-        /// 加载学生成绩，如果没有成绩则创建成绩记录
-        /// </summary>
-        /// <param name="studentCurriculumIndex">学生的学号和课程ID组成的索引</param>
-        private void LoadStudentScore(string studentCurriculumIndex)
-        {
-            string sql = string.Format("SELECT * FROM score_info WHERE SCORE_INDEX = '{0}'", studentCurriculumIndex);
-
-            //记录不存在则增加记录并显示
-            if (DbConnect.CountDataNumber(sql) < 1)
-            {
-                sql = string.Format("INSERT INTO score_info  VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", studentCurriculumIndex,StudentId.Text, CurriculumId.Text,"0","0", "0");
-
-                DbConnect.ModifySql(sql);
-
-                LoadSelectCourse(MajorInfoList[MajorCombobox.SelectedIndex].Num);
-            }
-            else//记录存在则显示记录
-            {
-
-            }
-
-
-
-        }
     }
 }
