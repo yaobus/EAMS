@@ -144,6 +144,9 @@
     <Compile Include="UserPlan\DepartmentPlan.xaml.cs">
       <DependentUpon>DepartmentPlan.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserPlan\RewardPlan.xaml.cs">
+      <DependentUpon>RewardPlan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserPlan\ServerSettingPlan.xaml.cs">
       <DependentUpon>ServerSettingPlan.xaml</DependentUpon>
     </Compile>
@@ -202,6 +205,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserPlan\DepartmentPlan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserPlan\RewardPlan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

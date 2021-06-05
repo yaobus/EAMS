@@ -98,7 +98,17 @@ namespace EducationalAdministrationManagementSystem
 
                     break;
 
-                 default:
+
+                case 8:
+
+                    ChlidPlan.Children.Clear();
+                    ChlidPlan.Children.Add(new RewardPlan());
+
+
+                    break;
+
+
+                default:
                      break;
                 
             }
