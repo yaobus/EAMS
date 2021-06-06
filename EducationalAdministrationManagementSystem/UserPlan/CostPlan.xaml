@@ -85,6 +85,11 @@
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
                     materialDesign:HintAssist.Hint="费用详细说明"/>
+                <DatePicker
+                    x:Name="DatePicker"
+                    Margin="0,5"
+                    materialDesign:HintAssist.Hint="费用填写时间"
+                    Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
                 <TextBox
                     x:Name="SumTextBox"
                     Margin="0,5"
@@ -93,14 +98,13 @@
                     IsEnabled="False"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="费用合计"/>
-
+                    materialDesign:HintAssist.Hint="应缴纳费用合计"/>
+<!--
                 <Button
                     x:Name="DelButton"
                     Margin="0,5"
-                    
                     Style="{StaticResource MaterialDesignOutlinedButton}"
-                    ToolTip="从当前专业移除该课程" >
+                    ToolTip="从当前专业移除该费用信息" >
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                         <materialDesign:PackIcon Kind="Delete" Width="20" Height="20"/>
                         <TextBlock Text="移除费用信息" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
@@ -108,13 +112,13 @@
 
 
                 </Button>
-
+-->
                 <Button
                     x:Name="AddButton"
                     Margin="0,5"
-                    
+                    Click="AddButton_OnClick"
                     Style="{StaticResource MaterialDesignOutlinedButton}"
-                    ToolTip="添加课程到当前专业" >
+                    ToolTip="添加费用信息到当前专业" >
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                         <materialDesign:PackIcon Kind="AddBox" Width="20" Height="20"/>
                         <TextBlock Text="添加费用信息" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
@@ -123,7 +127,7 @@
                 </Button>
 
 
-
+                <!--
                 <Button
                     x:Name="SaveButton"
                     Margin="0,5"
@@ -137,8 +141,7 @@
 
 
                 </Button>
-
-
+                -->
 
 
             </StackPanel>
@@ -157,7 +160,7 @@
             <ListView
                 HorizontalAlignment="Stretch"
                 
-                x:Name="SelectCurriculumListView" >
+                x:Name="CostShouldListView" >
 
                 <ListView.View >
                     <GridView >
@@ -166,23 +169,23 @@
                             DisplayMemberBinding="{Binding Index}"
                             Header="序号" />
                         <GridViewColumn
-                            DisplayMemberBinding="{Binding CourseId}"
+                            DisplayMemberBinding="{Binding MajorId}"
                             Header="专业ID" />
                         <GridViewColumn
-                            DisplayMemberBinding="{Binding CourseName}"
-                            Header="专业名称" />
+                            DisplayMemberBinding="{Binding CostName}"
+                            Header="费用名称" />
                         <GridViewColumn
-                            DisplayMemberBinding="{Binding Score}"
-                            Header="费用信息" />
-                        <GridViewColumn
-                            DisplayMemberBinding="{Binding Score}"
+                            DisplayMemberBinding="{Binding CostType}"
                             Header="费用类型" />
                         <GridViewColumn
-                            DisplayMemberBinding="{Binding Score}"
+                            DisplayMemberBinding="{Binding CostNumber}"
                             Header="费用金额" />
                         <GridViewColumn
-                            DisplayMemberBinding="{Binding Score}"
+                            DisplayMemberBinding="{Binding CostNote}"
                             Header="费用说明" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding ShouldDate}"
+                            Header="填写时间" />
 
                     </GridView>
                 </ListView.View>

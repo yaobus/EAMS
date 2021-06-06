@@ -418,6 +418,90 @@ namespace EducationalAdministrationManagementSystem.ViewMode
             }
         }
 
+        /// <summary>
+        /// 费用规划数据类型
+        /// </summary>
+        public class CostShouldViewMode
+        {
+            public int Index { get; set; }
+
+            public string CostIndex { get; set; }
+
+            public string MajorId { get; set; }
+
+            public string CostName { get; set; }
+
+            public string CostType { get; set; }
+
+            public double CostNumber { get; set; }
+
+            public string CostNote { get; set; }
+
+            public  string ShouldDate { get; set; }
+
+
+            public CostShouldViewMode(int index, string costIndex, string majorId, string costName, string costType, double costNumber, string costNote,string date)
+            {
+                Index = index;
+                CostIndex = costIndex;
+                MajorId = majorId;
+                CostName = costName;
+                CostType = costType;
+                CostNumber = costNumber;
+                CostNote = costNote;
+                ShouldDate = date;
+            }
+
+
+
+        }
+
+
+        /// <summary>
+        /// 费用支付数据类型
+        /// </summary>
+        public class CostPayViewMode
+        {
+            public int Index { get; set; }
+
+            public string CostIndex { get; set; }
+
+            public string MajorId { get; set; }
+
+            public string CostName { get; set; }
+
+            public string CostType { get; set; }
+
+            public  double CostNumber { get; set; }
+
+            public string CostNote { get; set; }
+
+            public string ShouldDate { get; set; }
+
+            public double CostPay { get; set; }
+
+            public string PayNote { get; set; }
+            public string PayDate { get; set; }
+
+            public CostPayViewMode(int index, string costIndex, string majorId, string costName, string costType, double costNumber, string costNote,string shouldDate, double costPay,string payNote,string payDate)
+            {
+                Index = index;
+                CostIndex = costIndex;
+                MajorId = majorId;
+                CostName = costName;
+                CostType = costType;
+                CostNumber = costNumber;
+                CostNote = costNote;
+                ShouldDate = shouldDate;
+                CostPay = costPay;
+                PayNote = payNote;
+                PayDate = payNote;
+            }
+
+
+
+        }
+
     }
 
 
