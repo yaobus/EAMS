@@ -107,6 +107,14 @@ namespace EducationalAdministrationManagementSystem
 
                     break;
 
+                case 9:
+
+                    ChlidPlan.Children.Clear();
+                    ChlidPlan.Children.Add(new CostPlan());
+
+
+                    break;
+
 
                 default:
                      break;

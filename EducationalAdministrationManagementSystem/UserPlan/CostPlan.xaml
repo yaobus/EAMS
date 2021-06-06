@@ -5,8 +5,189 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EducationalAdministrationManagementSystem.UserPlan"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="14"
+             TextOptions.TextFormattingMode="Ideal" 
+             TextOptions.TextRenderingMode="Auto"    
+             d:DesignHeight="650" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+
+
+        <GroupBox
+            Grid.Column="0"
+            MaxWidth="300"
+            Header="专业信息"
+            Style="{DynamicResource MaterialDesignGroupBox}"
+            Margin="5,5,0,5">
+
+            <StackPanel Orientation="Vertical">
+
+                <ComboBox
+                    Margin="0,5"
+                    x:Name="DepartmentCombobox"
+                    SelectionChanged="DepartmentCombobox_OnSelectionChanged"
+                    Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                    materialDesign:HintAssist.Hint="学院"/>
+
+                <ComboBox
+                    Margin="0,5"
+                    SelectionChanged="SystemCombobox_OnSelectionChanged"
+                    x:Name="SystemCombobox"
+                    Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                    materialDesign:HintAssist.Hint="系部"/>
+
+                <ComboBox
+                    Margin="0,5"
+                    x:Name="MajorCombobox"
+                    SelectionChanged="MajorCombobox_OnSelectionChanged"
+                    Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                    materialDesign:HintAssist.Hint="专业"/>
+
+                <TextBox
+                    x:Name="CostNameTextBox"
+                    Margin="0,5"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    AcceptsReturn="False"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="费用信息"/>
+                <ComboBox
+                    Margin="0,5"
+                    x:Name="CostTypeCombobox"
+                    SelectionChanged="MajorCombobox_OnSelectionChanged"
+                    Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                    materialDesign:HintAssist.Hint="费用类型"/>
+
+                <TextBox
+                    x:Name="CostTextBox"
+                    Margin="0,5"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    AcceptsReturn="False"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="金额"/>
+
+                <TextBox
+                    x:Name="CostNoteTextBox"
+                    Margin="0,5"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="费用详细说明"/>
+                <TextBox
+                    x:Name="SumTextBox"
+                    Margin="0,5"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    IsEnabled="False"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="费用合计"/>
+
+                <Button
+                    x:Name="DelButton"
+                    Margin="0,5"
+                    
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    ToolTip="从当前专业移除该课程" >
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                        <materialDesign:PackIcon Kind="Delete" Width="20" Height="20"/>
+                        <TextBlock Text="移除费用信息" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                    </StackPanel>
+
+
+                </Button>
+
+                <Button
+                    x:Name="AddButton"
+                    Margin="0,5"
+                    
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    ToolTip="添加课程到当前专业" >
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                        <materialDesign:PackIcon Kind="AddBox" Width="20" Height="20"/>
+                        <TextBlock Text="添加费用信息" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                    </StackPanel>
+
+                </Button>
+
+
+
+                <Button
+                    x:Name="SaveButton"
+                    Margin="0,5"
+                    
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    ToolTip="保存课程修改" >
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                        <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"></materialDesign:PackIcon>
+                        <TextBlock Text="保存信息修改" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                    </StackPanel>
+
+
+                </Button>
+
+
+
+
+            </StackPanel>
+
+
+
+
+        </GroupBox>
+
+        <GroupBox
+            Grid.Column="1"
+
+            Header="该专业需缴纳费用信息"
+            Style="{DynamicResource MaterialDesignGroupBox}"
+            Margin="5,5,0,5">
+            <ListView
+                HorizontalAlignment="Stretch"
+                
+                x:Name="SelectCurriculumListView" >
+
+                <ListView.View >
+                    <GridView >
+                        <GridViewColumn
+                                        
+                            DisplayMemberBinding="{Binding Index}"
+                            Header="序号" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding CourseId}"
+                            Header="专业ID" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding CourseName}"
+                            Header="专业名称" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding Score}"
+                            Header="费用信息" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding Score}"
+                            Header="费用类型" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding Score}"
+                            Header="费用金额" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding Score}"
+                            Header="费用说明" />
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </GroupBox>
+
     </Grid>
 </UserControl>
