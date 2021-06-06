@@ -138,6 +138,9 @@
     <Compile Include="UserPlan\AllCurriculum.xaml.cs">
       <DependentUpon>AllCurriculum.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserPlan\CostPlan.xaml.cs">
+      <DependentUpon>CostPlan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserPlan\CurriculumPlan.xaml.cs">
       <DependentUpon>CurriculumPlan.xaml</DependentUpon>
     </Compile>
@@ -197,6 +200,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserPlan\AllCurriculum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserPlan\CostPlan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

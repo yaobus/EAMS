@@ -69,7 +69,8 @@ namespace GloableVariable
         //当前选中的规划课程ID
         public static string SelectTeacherId = null;
 
-
+        //当前选中的奖惩信息ID
+        public static string RewardIndex = null;
 
 
 

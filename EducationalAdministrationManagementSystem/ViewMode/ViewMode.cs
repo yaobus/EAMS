@@ -386,6 +386,38 @@ namespace EducationalAdministrationManagementSystem.ViewMode
             }
         }
 
+
+        /// <summary>
+        /// 自定义教师数据类型
+        /// </summary>
+        public class RewardViewMode
+        {
+            public int Index { get; set; }
+            public string RewardIndex { get; set; }
+            public string StudentId { get; set; }
+            public string StudentName { get; set; }
+            public string Date { get; set; }
+            public string RewardType { get; set; }
+            public string Note { get; set; }
+            public string DelStatus { get; set; }
+
+
+            public RewardViewMode(int index, string rewardIndex, string studentId, string studentName,
+                string date, string rewardType, string note, string delStatus)
+            {
+                Index = index;
+                RewardIndex = rewardIndex;
+                StudentId = studentId;
+                StudentName = studentName;
+                Date = date;
+                RewardType = rewardType;
+                Note = note;
+                DelStatus = delStatus;
+
+
+            }
+        }
+
     }
 
 

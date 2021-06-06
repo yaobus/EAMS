@@ -193,7 +193,7 @@
 
                     <ComboBox
                     Margin="0,5"
-                    x:Name="DailyTextBox"
+                    x:Name="RewardComboBox"
                     Style="{StaticResource MaterialDesignOutlinedComboBox}"
                     VerticalAlignment="Top"
 
@@ -209,7 +209,7 @@
 
                     <TextBox
                     Margin="0,5"
-                    x:Name="LastTextBox"
+                    x:Name="NoteTextBox"
                     Height="100"
                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
                     VerticalAlignment="Top"
@@ -223,6 +223,7 @@
                     <Button
                         Margin="0,5"
                         x:Name="DelButton"
+                        Click="DelButton_OnClick"
                         Style="{StaticResource MaterialDesignOutlinedButton}"
                         ToolTip="删除正在编辑的这条记录">
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Stretch">
@@ -234,6 +235,7 @@
                     <Button
                         Margin="0,5"
                         x:Name="SaveButton"
+                        Click="SaveButton_OnClick"
                         Style="{StaticResource MaterialDesignOutlinedButton}"
                         ToolTip="保存正在编辑的这条记录" >
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
@@ -260,9 +262,9 @@
 
                     <ListView
                         Margin="0,5"
-                        x:Name="CurriculumScoreListView"
+                        x:Name="RewardListView"
                         BorderThickness="1"
-
+                        SelectionChanged="RewardListView_OnSelectionChanged"
                         Style="{DynamicResource MaterialDesignListView}">
 
                         <ListView.View >
@@ -278,10 +280,10 @@
                                     DisplayMemberBinding="{Binding StudentName}"
                                     Header="姓名" />
                                 <GridViewColumn
-                                    DisplayMemberBinding="{Binding DateTime}"
+                                    DisplayMemberBinding="{Binding Date}"
                                     Header="时间" />
                                 <GridViewColumn
-                                    DisplayMemberBinding="{Binding TYPE}"
+                                    DisplayMemberBinding="{Binding RewardType}"
                                     Header="奖惩类型" />
                                 <GridViewColumn
                                     DisplayMemberBinding="{Binding Note}"
