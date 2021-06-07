@@ -25,7 +25,7 @@
     <s:String x:Key="TextualResearch">考籍管理</s:String>
     <s:String x:Key="PrizeInfo">奖惩信息</s:String>
     <s:String x:Key="Cost">费用计划</s:String>
-    <s:String x:Key="CostInfo">费用缴纳</s:String>
+    <s:String x:Key="CostInfo">费用结算</s:String>
 
     <s:String x:Key="Setting">系统设置</s:String>
     <s:String x:Key="UserManagement">用户管理</s:String>

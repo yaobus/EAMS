@@ -503,30 +503,12 @@ namespace EducationalAdministrationManagementSystem.UserPlan
             //清空专业列表
             CurriculumScoreList.Clear();
 
-
-
-
             if (GlobalVariable.DbConnectInfo != null)
             {
                 if (DbConnect.MySqlConnection.State == ConnectionState.Closed)
                 {
                     DbConnect.MySqlConnection.Open(); //连接数据库
                 }
-
-                //try
-                //{
-                //    DbConnect.MySqlConnection = DbConnect.ConnectionMysql(GlobalVariable.DbConnectInfo);
-
-                //    DbConnect.MySqlConnection.Open(); //连接数据库
-
-                //}
-                //catch (Exception)
-                //{
-                //    MessageBox.Show("数据库连接失败!请检查数据库配置");
-                //}
-
-
-
 
                 if (majorId != null)
                 {
@@ -546,44 +528,27 @@ namespace EducationalAdministrationManagementSystem.UserPlan
                         string courseId = reader.GetString("COURSE_ID");
                         string courseName = reader.GetString("COURSE_NAME");
                         string score = reader.GetString("SCORE");
-
                         string studentCurriculumIndex =
                             EncryptionDecryptionFunction.MD5EncryptionDecryption.MyTextMD5(StudentId.Text + courseId, 8);
-
                         indexList.Add(studentCurriculumIndex);
-
                         string dailyScore = "";
-
                         string lastScore = "";
-
                         string creditSocre = "";
-
-
                         CurriculumScoreList.Add(new ViewMode.ViewMode.CurriculumScoreViewMode(index, courseIndex, majorId,
                             courseId, courseName, score, dailyScore, lastScore, creditSocre));
-
                     }
-
                     reader.Close();
-
                     for (int i = 0; i < indexList.Count(); i++)
                     {
-
                         //加载该学生对应的科目成绩
-
                         string sql2 = string.Format("SELECT * FROM score_info WHERE SCORE_INDEX = '{0}'", indexList[i]);
 
                         //记录不存在则先增加记录并显示
                         if (DbConnect.CountDataNumber(sql2) < 1)
                         {
-                            // DbConnect.MySqlConnection.State==
-
-
-
                             sql2 = string.Format("INSERT INTO score_info  VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", indexList[i], StudentId.Text, CurriculumScoreList[i].CourseId, "0", "0", "0");
                             Console.WriteLine(sql2);
-                            _ = DbConnect.ModifySql(sql2);
-
+                            DbConnect.ModifySql(sql2);
                         }
                         else//记录存在则加载数据
                         {
@@ -593,44 +558,21 @@ namespace EducationalAdministrationManagementSystem.UserPlan
                                 string dailyScore = reader2.GetString("DAILY_SCORE");
                                 string lastScore = reader2.GetString("LAST_SOCRE");
                                 string creditSocre = reader2.GetString("CREDIT_SOCRE");
-
                                 CurriculumScoreList[i].DailyScore = dailyScore;
                                 CurriculumScoreList[i].LastScore = lastScore;
                                 CurriculumScoreList[i].CreditScore = creditSocre;
                             }
-
                             reader2.Close();
                         }
 
                     }
-
-
-
                     DbConnect.MySqlConnection.Close();
-
-
-
                 }
                 else
                 {
                     Console.WriteLine("CurriculumPlan.LoadSelectCourse检查数据库连接信息！");
                 }
-
-
-
-
-
             }
-
-
-
-
-
-
-
-
-
-
         }
 
         public ObservableCollection<ViewMode.ViewMode.CurriculumScoreViewMode> CurriculumScoreList =

@@ -423,7 +423,6 @@ namespace EducationalAdministrationManagementSystem.UserPlan
         /// <param name="e"></param>
         private void AddButton_OnClick(object sender, RoutedEventArgs e)
         {
-            //TODO 判断学分输入框是不是数字
 
             if (MajorInfoList.Count > 0 && CurriculumNumTextBox.Text.Trim() != "")
             {

@@ -423,8 +423,6 @@ namespace EducationalAdministrationManagementSystem.UserPlan
                 costNumber *= -1;
             }
 
-
-
             if (majorId != null)
             {
 
