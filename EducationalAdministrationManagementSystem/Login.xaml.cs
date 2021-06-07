@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using EducationalAdministrationManagementSystem.GlobalFunction;
 using EducationalAdministrationManagementSystem.EncryptionDecryptionFunction;
@@ -185,6 +186,22 @@ namespace EducationalAdministrationManagementSystem
                 }
 
             }
+
+
+        }
+
+        private void LanguageSelect_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (LanguageSelect.SelectedIndex ==1)
+            {
+                GlobalFunction.PublicClass.SetLanguage("en-US");
+            }
+            else
+            {
+                GlobalFunction.PublicClass.SetLanguage("zh-CN");
+            }
+
 
 
         }

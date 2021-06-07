@@ -513,134 +513,130 @@ namespace EducationalAdministrationManagementSystem.UserPlan
                 {
                     DbConnect.MySqlConnection.Open(); //连接数据库
                     
-                    if (majorId != null)
+                }
+                if (majorId != null)
+                {
+                    string sql = string.Format("SELECT * FROM cost_should_info WHERE MAJOR_ID  = '{0}'", majorId);
+
+                    MySqlDataReader reader = DbConnect.CarrySqlCmd(sql);
+
+
+                    List<string> indexList = new List<string>();
+                    double sum = 0;
+                    double sumPay = 0;
+                    int index = 0;
+                    while (reader.Read())
                     {
-                        string sql = string.Format("SELECT * FROM cost_should_info WHERE MAJOR_ID  = '{0}'", majorId);
+                        index += 1;
+                        string costIndex = reader.GetString("COST_INDEX");
+                        string id = reader.GetString("MAJOR_ID");
+                        string costName = reader.GetString("COST_NAME");
+                        string costType = reader.GetString("COST_TYPE");
+                        double costNumber = Convert.ToDouble(reader.GetString("COST_NUMBER"));
+                        string costNote = reader.GetString("COST_NOTE");
+                        DateTime costDate = Convert.ToDateTime(reader.GetString("SHOULD_DATE"));
+                        sum += costNumber;
+                        //生成支付索引
+                        string payIndex =
+                            EncryptionDecryptionFunction.MD5EncryptionDecryption.MyTextMD5(
+                                StudentId.Text + costIndex, 8);
 
-                        MySqlDataReader reader = DbConnect.CarrySqlCmd(sql);
+                        indexList.Add(payIndex);
+
+                        double costPay = 0;
+
+                        string payNote = "";
+
+                        string payDate = "";
 
 
-                        List<string> indexList = new List<string>();
-                        double sum = 0;
-                        double sumPay = 0;
-                        int index = 0;
-                        while (reader.Read())
+                        CostPayList.Add(new ViewMode.ViewMode.CostPayViewMode(index, costIndex,
+                            id, costName, costType, costNumber, costNote, costDate.ToString("D"), costPay, payNote, payDate));
+
+                    }
+
+                    CostTextBox.Text = sum.ToString();
+
+                    reader.Close();
+
+
+
+
+                    for (int i = 0; i < indexList.Count(); i++)
+                    {
+
+                        //加载该学生对应的科目成绩
+
+                        string sql2 = string.Format("SELECT * FROM cost_pay_info WHERE PAY_INDEX = '{0}'",
+                            indexList[i]);
+                        Console.WriteLine("PayPlan.LoadCostPayData" + sql2);
+
+                        //记录不存在则先增加记录并显示
+                        if (DbConnect.CountDataNumber(sql2) < 1)
                         {
-                            index += 1;
-                            string costIndex = reader.GetString("COST_INDEX");
-                            string id = reader.GetString("MAJOR_ID");
-                            string costName = reader.GetString("COST_NAME");
-                            string costType = reader.GetString("COST_TYPE");
-                            double costNumber = Convert.ToDouble(reader.GetString("COST_NUMBER"));
-                            string costNote = reader.GetString("COST_NOTE");
-                            DateTime costDate = Convert.ToDateTime(reader.GetString("SHOULD_DATE"));
-                            sum += costNumber;
-                            //生成支付索引
-                            string payIndex =
-                                EncryptionDecryptionFunction.MD5EncryptionDecryption.MyTextMD5(
-                                    StudentId.Text + costIndex, 8);
-
-                            indexList.Add(payIndex);
-
-                            double costPay = 0;
-
-                            string payNote = "";
-
-                            string payDate = "";
 
 
-                            CostPayList.Add(new ViewMode.ViewMode.CostPayViewMode(index, costIndex,
-                                id, costName, costType, costNumber, costNote, costDate.ToString("D"), costPay, payNote, payDate));
+                            sql2 = string.Format(
+                                "INSERT INTO cost_pay_info  VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')",
+                                indexList[i], CostPayList[i].CostIndex, StudentId.Text, 0, "", null);
+                            Console.WriteLine(sql2);
+                            DbConnect.ModifySql(sql2);
 
                         }
-
-                        CostTextBox.Text = sum.ToString();
-
-                        reader.Close();
-
-                      
-
-
-                        for (int i = 0; i < indexList.Count(); i++)
+                        else //记录存在则加载数据
                         {
 
-                            //加载该学生对应的科目成绩
+                            MySqlDataReader reader2 = DbConnect.CarrySqlCmd(sql2);
 
-                            string sql2 = string.Format("SELECT * FROM cost_pay_info WHERE PAY_INDEX = '{0}'",
-                                indexList[i]);
-                            Console.WriteLine("PayPlan.LoadCostPayData"+sql2);
-
-                            //记录不存在则先增加记录并显示
-                            if (DbConnect.CountDataNumber(sql2) < 1)
+                            if (reader2.Read())
                             {
-
-
-                                sql2 = string.Format(
-                                    "INSERT INTO cost_pay_info  VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')",
-                                    indexList[i], CostPayList[i].CostIndex, StudentId.Text, 0, "", null);
-                                Console.WriteLine(sql2);
-                                DbConnect.ModifySql(sql2);
-
-                            }
-                            else //记录存在则加载数据
-                            {
-
-                                MySqlDataReader reader2 = DbConnect.CarrySqlCmd(sql2);
-
-                                if (reader2.Read())
-                                {
-                                    double costPay = Convert.ToDouble(reader2.GetString("COST_PAY"));
-                                    string payNote = reader2.GetString("PAY_NOTE");
-                                    string payDate = reader2.GetString("PAY_DATE");
-                                    sumPay += costPay;
-                                    CostPayList[i].CostPay = costPay;
-                                    CostPayList[i].PayNote = payNote;
-                                    CostPayList[i].PayDate = payDate;
-                                }
-
-                                reader2.Close();
-                                PayTextBox.Text = sumPay.ToString();
+                                double costPay = Convert.ToDouble(reader2.GetString("COST_PAY"));
+                                string payNote = reader2.GetString("PAY_NOTE");
+                                string payDate = reader2.GetString("PAY_DATE");
+                                sumPay += costPay;
+                                CostPayList[i].CostPay = costPay;
+                                CostPayList[i].PayNote = payNote;
+                                CostPayList[i].PayDate = payDate;
                             }
 
+                            reader2.Close();
+                            PayTextBox.Text = sumPay.ToString();
                         }
 
-
-
-                        DbConnect.MySqlConnection.Close();
-
-
-
-                        if (sumPay < sum)
-                        {
-                            PayTextBox.Foreground = Brushes.IndianRed;
-                        }
-                        else
-                        {
-                            if (sumPay>sum)
-                            {
-                                PayTextBox.Foreground = Brushes.Orange;
-                            }
-                            else
-                            {
-                                PayTextBox.Foreground = Brushes.Green;
-                            }
-                            
-
-                        }
+                    }
 
 
 
+                    DbConnect.MySqlConnection.Close();
+
+
+
+                    if (sumPay < sum)
+                    {
+                        PayTextBox.Foreground = Brushes.IndianRed;
                     }
                     else
                     {
-                        Console.WriteLine("CurriculumPlan.LoadSelectCourse 检查数据库连接信息！");
+                        if (sumPay > sum)
+                        {
+                            PayTextBox.Foreground = Brushes.Orange;
+                        }
+                        else
+                        {
+                            PayTextBox.Foreground = Brushes.Green;
+                        }
+
+
                     }
-
-
 
 
 
                 }
+                else
+                {
+                    Console.WriteLine("CurriculumPlan.LoadSelectCourse 检查数据库连接信息！");
+                }
+
 
             }
         }

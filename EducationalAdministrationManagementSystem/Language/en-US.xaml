@@ -1,0 +1,35 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+
+    <system:String x:Key="MainTitle">Academic Affairs Management System</system:String>
+    <system:String x:Key="Login">Login</system:String>
+
+    <system:String x:Key="DbHost">Database Host：</system:String>
+    <system:String x:Key="DbPort">Database Port：</system:String>
+    <system:String x:Key="DbUser">Database User：</system:String>
+    <system:String x:Key="DbPassword">Password：</system:String>
+    <system:String x:Key="DbName">Database Name：</system:String>
+
+    <system:String x:Key="Welcome">Welcome</system:String>
+
+    <system:String x:Key="Overview">Overview</system:String>
+    <system:String x:Key="DepartmentManagement">Department</system:String>
+    <system:String x:Key="CoursePool">All Courses</system:String>
+    <system:String x:Key="Curriculum">Course Planning</system:String>
+    <system:String x:Key="TeacherManagement">Faculty</system:String>
+    <system:String x:Key="StudentInfo">Registration</system:String>
+    <system:String x:Key="StudentAchievement">Performance</system:String>
+    <system:String x:Key="TextualResearch">Examination</system:String>
+    <system:String x:Key="PrizeInfo">Rewards</system:String>
+    <system:String x:Key="Cost">Cost Plan</system:String>
+    <system:String x:Key="CostInfo">Fee Payment</system:String>
+
+    <system:String x:Key="Setting">Setting</system:String>
+    <system:String x:Key="UserManagement">User Management</system:String>
+    <system:String x:Key="About">About</system:String>
+    <system:String x:Key="Exit">Exit</system:String>
+
+
+</ResourceDictionary>

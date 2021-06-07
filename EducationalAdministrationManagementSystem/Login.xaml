@@ -37,11 +37,13 @@
 
                     <materialDesign:PackIcon Kind="Language" Margin="5,0,5,0" VerticalAlignment="Center"></materialDesign:PackIcon>
 
-                    <ComboBox x:Name="LanguageSelect" Width="100" SelectedIndex="0">
+                    <ComboBox x:Name="LanguageSelect" Width="100"
+                              SelectionChanged="LanguageSelect_OnSelectionChanged"
+                              SelectedIndex="0">
 
                         <ComboBoxItem >
 
-                            <Label>简体中文</Label>
+                            简体中文
 
                         </ComboBoxItem>
 
@@ -104,11 +106,11 @@
                                 Margin="5"
                                 Height="50"
                                 Style="{StaticResource MaterialDesignOutlinedButton}"
-                                ToolTip="保存课程修改" 
+                                ToolTip="点击以登陆系统" 
                                 Click="LoginButton_OnClick">
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                             <materialDesign:PackIcon Kind="Login" Width="20" Height="30"></materialDesign:PackIcon>
-                            <TextBlock Text="登陆系统" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                            <TextBlock Text="{DynamicResource Login}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
                         </StackPanel>
 
 

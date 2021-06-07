@@ -158,7 +158,7 @@ namespace EducationalAdministrationManagementSystem.UserPlan
 
                 //清空选择，防止误操作
                 GlobalVariable.SelectDepartmentId = null;
-
+                NewButton_OnClick(null,null);
 
             }
             else
