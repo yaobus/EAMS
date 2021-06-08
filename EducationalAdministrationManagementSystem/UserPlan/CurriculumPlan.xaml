@@ -21,7 +21,6 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-
         <GroupBox
             Grid.Column="0"
             MaxWidth="300"

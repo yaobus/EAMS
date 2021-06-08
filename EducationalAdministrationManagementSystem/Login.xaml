@@ -22,53 +22,33 @@
                     <ColumnDefinition Width="150"/>
                     <ColumnDefinition Width="40"/>
                 </Grid.ColumnDefinitions>
-
                 <StackPanel Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal">
                     <Button x:Name="SettingButton"  VerticalAlignment="Bottom" Width="40" Height="40"  Background="{x:Null}" BorderBrush="{x:Null}"  Padding="0" Foreground="{x:Null}" Click="SettingButton_OnClick">
                         <materialDesign:PackIcon Kind="Cogs" Height="30" Width="30" Foreground="{DynamicResource MaterialDesignToolForeground}"></materialDesign:PackIcon>
                     </Button>
-
                     <Label Content="{DynamicResource Login}"  VerticalAlignment="Center" FontSize="16" FontFamily="arial"></Label>
 
                 </StackPanel>
-
-
                 <StackPanel Margin="0,0,10,0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
-
                     <materialDesign:PackIcon Kind="Language" Margin="5,0,5,0" VerticalAlignment="Center"></materialDesign:PackIcon>
-
                     <ComboBox x:Name="LanguageSelect" Width="100"
                               SelectionChanged="LanguageSelect_OnSelectionChanged"
                               SelectedIndex="0">
-
                         <ComboBoxItem >
-
                             简体中文
-
                         </ComboBoxItem>
-
                         <ComboBoxItem
                             Content="English" />
                     </ComboBox>
-
-
                 </StackPanel>
-
                 <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Left">
-
                     <Button x:Name="CloseButton"  VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="40" Height="40"  Background="{x:Null}" BorderBrush="{x:Null}"  Padding="0" Foreground="{x:Null}" Click="CloseButton_OnClick">
                         <materialDesign:PackIcon Kind="Close" Height="30" Width="30" Foreground="{DynamicResource MaterialDesignToolForeground}"></materialDesign:PackIcon>
                     </Button>
-
                 </StackPanel>
             </Grid>
-
-
             <Grid  Width="600" Margin="0,50,0,80">
-
                 <StackPanel Height="240" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-
-
                     <TextBox
                                 Margin="5"
                                 x:Name="UserNameBox"
@@ -80,8 +60,6 @@
                                 VerticalScrollBarVisibility="Auto"
                                 materialDesign:HintAssist.Hint="User name"
                                 />
-
-
                     <PasswordBox
                                 Margin="5"
                                 x:Name="UserPasswordBox"
@@ -89,18 +67,11 @@
                                 VerticalAlignment="Top"
                                 Password="5896321470"
                                materialDesign:HintAssist.Hint="Password" />
-
-
-
-
-
                     <ComboBox
                                 Margin="5"
                                 x:Name="UserTypeCombobox"
                                 Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                 materialDesign:HintAssist.Hint="身份选择"/>
-
-
                     <Button
                                 x:Name="LoginButton"
                                 Margin="5"
@@ -112,54 +83,14 @@
                             <materialDesign:PackIcon Kind="Login" Width="20" Height="30"></materialDesign:PackIcon>
                             <TextBlock Text="{DynamicResource Login}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
                         </StackPanel>
-
-
                     </Button>
-
-                    <!--
-                    <StackPanel Orientation="Horizontal"  Height="30" Width="400" >
-
-                        <CheckBox
-                        Margin="0,0,50,0"
-                        Style="{StaticResource MaterialDesignCheckBox}" Background="#FF46B6AC" BorderBrush="#FF46B6AC">
-                            记住密码
-                        </CheckBox>
-
-                        <CheckBox
-                        Style="{StaticResource MaterialDesignCheckBox}" BorderBrush="#FF46B6AC" Background="#FF46B6AC">
-                            自动登录
-                        </CheckBox>
-
-                        <TextBlock Margin="50,0" Text="找回密码" VerticalAlignment="Center" Cursor="Hand"/>
-
-
-
-                    </StackPanel>
--->
-                    <StackPanel Height="0" Width="400" Margin="0,10,0,0" HorizontalAlignment="Stretch" Orientation="Horizontal" >
-
-
-
-
-
-
-
-
-                    </StackPanel>
+                    <StackPanel Height="0" Width="400" Margin="0,10,0,0" HorizontalAlignment="Stretch" Orientation="Horizontal" />
                 </StackPanel>
-
-
-
             </Grid>
-
-
             <Grid x:Name="FunctionPlan" Height="100" Width="600" VerticalAlignment="Bottom"/>
-
-
             <ProgressBar
                 x:Name="ProgressBar"
                 IsIndeterminate="False" VerticalAlignment="Bottom"/>
-
         </Grid>
     </materialDesign:TransitioningContent>
 </Window>

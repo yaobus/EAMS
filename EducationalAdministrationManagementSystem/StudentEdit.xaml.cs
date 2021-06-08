@@ -656,7 +656,6 @@ namespace EducationalAdministrationManagementSystem
                 sign = SignTextBox.Text;
                 signType = SignTypeTextBox.Text;
                 teacher = TeacherCombobox.Text;
-
                 string sql;
 
                 //修改档案

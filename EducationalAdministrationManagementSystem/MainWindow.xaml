@@ -46,10 +46,6 @@
                     <TextBlock VerticalAlignment="Center"  Margin="16 0 0 0" Text="{DynamicResource MainTitle}" FontSize="24" Foreground="DimGray"/>
                 </StackPanel>
 
-
-
-
-
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
                     <TextBlock Margin="0,0,10,0" Text="{DynamicResource Welcome}" FontSize="24"></TextBlock>
 
@@ -166,14 +162,15 @@
 
             <ListView x:Name="ListViewClient" Margin="10,0,0,0" HorizontalAlignment="Stretch" SelectionChanged="ListViewClient_OnSelectionChanged">
 
-                <ListViewItem Height="40"  >
+                <ListViewItem Height="40"  Visibility="Hidden">
+                    
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Settings" Margin="0,0,5,0" Width="24" Height="24"/>
                         <TextBlock Text="{DynamicResource Setting}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ListViewItem>
 
-                <ListViewItem Height="40"  >
+                <ListViewItem Height="40"  Visibility="Hidden">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Users" Margin="0,0,5,0" Width="24" Height="24"/>
                         <TextBlock Text="{DynamicResource UserManagement}" VerticalAlignment="Center"/>
