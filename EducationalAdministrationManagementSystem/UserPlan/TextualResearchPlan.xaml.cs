@@ -275,9 +275,7 @@ namespace EducationalAdministrationManagementSystem.UserPlan
         private void EditButton_OnClick(object sender, RoutedEventArgs e)
         {
             GlobalVariable.TextualResearchId = 1;
-
-
-
+            
             if (StudentListView.SelectedIndex != -1)
             {
 

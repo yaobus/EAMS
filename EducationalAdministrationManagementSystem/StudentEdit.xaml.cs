@@ -667,36 +667,17 @@ namespace EducationalAdministrationManagementSystem
                     sql = string.Format(
                         "UPDATE STUDENT_INFO SET STUDENT_NAME='{0}',SEX='{1}',NUMBER='{2}',SYSTEM_NAME='{3}',CERTIFICATE='{4}',CERTIFICATENUMBER='{5}',ADDRESS='{6}',PHONE='{7}',DATE='{8}',SCHOOLNAME='{9}',COMPANY='{10}',MAJORLEVEL='{11}',MAJORTYPE='{12}',MAJORNAME='{13}',MAJORNUM='{14}',EMAIL='{15}',STUDENTTYPE='{16}',STUDENTLEVEL='{17}',STUDENTEDU='{18}',POLITICS='{29}',NATION='{20}',OCCUPATION='{21}',WORKCOMPANY='{22}',HEALTH='{23}',CENSUS='{24}',POSTNUM='{25}',ENGNAME='{26}',BIRTHDAY='{27}',COLLECTIVE_CODE='{28}',GRADUATION='{29}',SIGN='{30}',SIGNTYPE='{31}', TEACHER='{32}' WHERE ID='{33}'",  name, sex, number, system, certificate, certificateNumber, address, phone, date, schoolName, company, majorLevel, majorType, majorName, majorNum, eMail, studentType, studentLevel, studentEdu, politics, nation, occupation, workCompany, health, census, postNum, engName, birthDay, code, graduation, sign, signType,teacher, id);
                     Console.WriteLine(sql);
-                  
-                    //文本信息存储
+                  //文本信息存储
                     DbConnect.ModifySql(sql);
-
-                   
-
-
-
-
                 }
                 //新建档案
                 else
                 {
-
-
-
                     sql = string.Format("INSERT INTO STUDENT_INFO  VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}','{26}','{27}','{28}','{29}','{30}','{31}','{32}','{33}','0')", id, name, sex, number, system, certificate, certificateNumber, address, phone, date, schoolName, company, majorLevel, majorType, majorName, majorNum, eMail, studentType, studentLevel, studentEdu, politics, nation, occupation, workCompany, health, census, postNum, engName, birthDay, code, graduation, sign, signType, teacher);
                     Console.WriteLine(sql);
                     //文本信息存储
                     DbConnect.ModifySql(sql);
-
-                   
-
-
                 }
-
-
-
-
-
 
                 sql = string.Format("SELECT * FROM portrait_img WHERE STUDENT_ID = '{0}'", id);
 
@@ -712,19 +693,12 @@ namespace EducationalAdministrationManagementSystem
                         sql = string.Format("INSERT INTO portrait_img  VALUES ('{0}',@file)", id);
                         //DbConnect.MySqlConnection.Open(); //连接数据库
 
-
-
-
                         DbConnect.MySqlConnection = DbConnect.ConnectionMysql(GlobalVariable.DbConnectInfo);
 
 
                         DbConnect.MySqlConnection.Open(); //连接数据库
 
                         MySqlCommand SqlCommand = new MySqlCommand(sql, DbConnect.MySqlConnection);
-
-
-
-
 
                         SqlCommand.Parameters.Add("@file", MySqlDbType.Binary, GlobalVariable.ImageBytes.Length);
                         SqlCommand.Parameters["@file"].Value = GlobalVariable.ImageBytes;
@@ -753,10 +727,6 @@ namespace EducationalAdministrationManagementSystem
 
                         MySqlCommand SqlCommand = new MySqlCommand(sql, DbConnect.MySqlConnection);
 
-
-
-
-
                         SqlCommand.Parameters.Add("@file", MySqlDbType.Binary, GlobalVariable.ImageBytes.Length);
                         SqlCommand.Parameters["@file"].Value = GlobalVariable.ImageBytes;
                         SqlCommand.ExecuteNonQuery();
@@ -767,25 +737,14 @@ namespace EducationalAdministrationManagementSystem
                     }
                 }
 
-
-
-
-
-
-
                 GlobalVariable.PhotoModified = 0;
                 this.Close();
-
 
             }
             else
             {
                 MessageBox.Show("生日或报名日期未填写！");
             }
-
-
-
-            
 
         }
 
@@ -804,19 +763,15 @@ namespace EducationalAdministrationManagementSystem
             };
             if ((bool)openFileDialog.ShowDialog())
             {
-
                 //获取图片字节流
                 byte[] bytes = GlobalFunction.ImageClass.FileToBytes(openFileDialog.FileName);
-
                 try
                 {
                     int x = bytes.Length;
                     if (x > 30 * 1024 || x == 0)
                     {
                         string str = string.Format("照片不得超过30kb\r\n" + "当前照片为：{0}kb", x / 1024);
-
                         MessageBox.Show(str, "照片不达标！");
-
                     }
                     else
                     {
@@ -826,28 +781,14 @@ namespace EducationalAdministrationManagementSystem
                         //照片存放到缓存
                         GlobalVariable.ImageBytes = bytes;
                     }
-
-
-
-
-
-
+                    
                 }
                 catch (Exception exception)
                 {
-
                     Console.WriteLine(exception.ToString());
-
                 }
-
-
-
-
-
             }
-
             GlobalVariable.PhotoModified = 1;
-
         }
 
 
@@ -870,10 +811,7 @@ namespace EducationalAdministrationManagementSystem
                     break;
                 }
             }
-
-
-
-
+            
         }
 
 
