@@ -164,7 +164,7 @@ namespace EducationalAdministrationManagementSystem
 
                     ChlidPlan.Children.Clear();
                     ChlidPlan.Children.Add(new AboutPlan());
-
+                    ListViewClient.SelectedIndex = -1;
 
 
                     break;

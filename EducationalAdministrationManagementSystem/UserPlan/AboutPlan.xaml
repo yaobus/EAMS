@@ -4,18 +4,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EducationalAdministrationManagementSystem.UserPlan"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.FontWeight="ExtraLight"
+             TextElement.FontSize="14"
+             TextOptions.TextFormattingMode="Ideal" 
+             TextOptions.TextRenderingMode="Auto"    
+             d:DesignHeight="650" d:DesignWidth="800">
 
 
     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromBottom, Duration=0:0:0.2}">
         <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" >
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" >
 
-            <TextBlock Foreground="Black" FontSize="32" Text="软件作者：姚磊"/>
-            <TextBlock Foreground="Black" FontSize="32" Text="Copyright © Yaobus 2021"/>
-        </StackPanel>
-    </Grid>
+                <TextBlock Foreground="Black" FontSize="32" Text="教务管理系统"/>
+                <TextBlock Foreground="Black" FontSize="32" Text="版权所有 2021 Yaobus. 保留所有权利。"/>
+                <TextBlock x:Name="TextBlock"  Foreground="Black" FontSize="32" Text="获取源代码请访问https://github.com/yaobus/EAMS.git"/>
+                <ToggleButton
+                    HorizontalAlignment="Left"
+                    Click="ButtonBase_OnClick"
+                    Content="{materialDesign:PackIcon Kind=Heart, Size=21}"
+                    Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                    ToolTip="点击我,带你去见源代码！"
+                    IsChecked="True" />
+
+            </StackPanel>
+        </Grid>
     </materialDesign:TransitioningContent>
 </UserControl>

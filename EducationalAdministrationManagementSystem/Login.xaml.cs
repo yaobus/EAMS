@@ -40,7 +40,7 @@ namespace EducationalAdministrationManagementSystem
             };
             UserTypeCombobox.ItemsSource = userTypeList;
 
-            UserTypeCombobox.SelectedIndex = 0;
+            UserTypeCombobox.SelectedIndex = 2;
 
 
 
@@ -183,6 +183,10 @@ namespace EducationalAdministrationManagementSystem
 
 
 
+                }
+                else
+                {
+                    MessageBox.Show("用户名或密码错误!");
                 }
 
             }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace EducationalAdministrationManagementSystem.UserPlan
 {
@@ -23,6 +24,14 @@ namespace EducationalAdministrationManagementSystem.UserPlan
         public AboutPlan()
         {
             InitializeComponent();
+        }
+
+
+
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.baidu.com/");
         }
     }
 }

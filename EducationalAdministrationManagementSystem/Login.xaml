@@ -70,6 +70,7 @@
                     <ComboBox
                                 Margin="5"
                                 x:Name="UserTypeCombobox"
+                                IsEnabled="False"
                                 Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                 materialDesign:HintAssist.Hint="身份选择"/>
                     <Button

@@ -13,8 +13,9 @@
              TextOptions.TextFormattingMode="Ideal" 
              TextOptions.TextRenderingMode="Auto"    
              d:DesignHeight="650" d:DesignWidth="800">
+    <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromBottom, Duration=0:0:0.8}">
 
-    <Grid>
+        <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="*"/>
@@ -203,4 +204,5 @@
 
 
     </Grid>
+        </materialDesign:TransitioningContent>
 </UserControl>
