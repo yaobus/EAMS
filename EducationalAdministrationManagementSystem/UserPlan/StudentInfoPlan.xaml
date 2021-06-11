@@ -45,6 +45,7 @@
                     >
 
                             <Image
+                                x:Name="Image"
                             Source="/Resources/Contact.png"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left" />
@@ -60,6 +61,46 @@
 
 
                     <WrapPanel  Grid.Column="0" Grid.Row="1" Width="300"  HorizontalAlignment="Left" Orientation="Vertical" >
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60*"></ColumnDefinition>
+                                <ColumnDefinition Width="40*"></ColumnDefinition>
+
+                            </Grid.ColumnDefinitions>
+
+
+
+                            <Grid Grid.Column="0" Grid.Row="0" VerticalAlignment="Center">
+                                <TextBox
+                                    x:Name="StretchTextBox"
+                                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                    KeyDown="StretchTextBox_OnKeyDown"
+                                    VerticalAlignment="Top"
+                                    HorizontalAlignment="Stretch"
+                                    materialDesign:HintAssist.Hint="搜索姓名" />
+
+                            </Grid>
+
+
+                            <Grid Grid.Column="1" Grid.Row="0" VerticalAlignment="Center">
+
+
+                                <Button x:Name="StretchButton" Click="StretchButton_OnClick" Margin="5,0,0,0" Height="51" Style="{StaticResource MaterialDesignOutlinedButton}" ToolTip="关键字">
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                        <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center"/>
+                                        <TextBlock Text="Search" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                                    </StackPanel>
+
+                                </Button>
+
+
+                            </Grid>
+
+
+
+                        </Grid>
+
 
                         <TextBox
                     x:Name="StudentNameTextBox"
@@ -84,33 +125,40 @@
 
                         <TextBox
                     Margin="0,5"
+                    x:Name="NumberTextBox"
                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
                     VerticalAlignment="Top"
                     AcceptsReturn="False"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="请输入准考证号"
+                    materialDesign:HintAssist.Hint="准考证号"
                 />
 
 
-                        <ComboBox
-                        Margin="0,5"
-                        x:Name="DepartmentCombobox"
-                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                        materialDesign:HintAssist.Hint="所在系别"/>
-
+                        <TextBox
+                            x:Name="SystemTextBox"
+                            Margin="0,5"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            VerticalAlignment="Top"
+                            AcceptsReturn="False"
+                            TextWrapping="Wrap"
+                            VerticalScrollBarVisibility="Auto"
+                            materialDesign:HintAssist.Hint="所在系别"
+/>
 
                         <TextBox
                     Margin="0,5"
+                    x:Name="CertificateTextBox"
                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
                     VerticalAlignment="Top"
                     AcceptsReturn="False"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="请输入身份证号"
+                    materialDesign:HintAssist.Hint="证件号码"
                 />
 
                         <TextBox
+                            x:Name="AddressTextBox"
                         Margin="0,5"
                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                         VerticalAlignment="Top"
@@ -122,6 +170,7 @@
 
                         <TextBox
                         Margin="0,5"
+                        x:Name="PhoneTextBox"
                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                         VerticalAlignment="Top"
                         AcceptsReturn="False"
@@ -131,6 +180,7 @@
                     />
 
                         <DatePicker
+                            x:Name="DatePicker"
                         Margin="0,5"
                         materialDesign:HintAssist.Hint="入学时间"
                         Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
@@ -197,105 +247,56 @@
             Style="{DynamicResource MaterialDesignGroupBox}"
             Margin="0,5,0,5">
                 <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="60"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="80*"/>
-                        <ColumnDefinition Width="20*"/>
-                    </Grid.ColumnDefinitions>
 
 
 
 
 
-
-                    <Grid Grid.Column="0" Grid.Row="0" VerticalAlignment="Center">
-
-                        <TextBox
-                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                        VerticalAlignment="Top"
-                        HorizontalAlignment="Stretch"
-                        materialDesign:HintAssist.Hint="搜索姓名" />
-
-
-                    </Grid>
-
-
-                    <Grid Grid.Column="1" Grid.Row="0" VerticalAlignment="Stretch">
-
-
-                        <StackPanel  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-
-
-
-
-                            <Button Margin="5,0" Height="51" Style="{StaticResource MaterialDesignOutlinedButton}" ToolTip="关键字">
-                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                    <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center"/>
-                                    <TextBlock Text="Search" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
-                                </StackPanel>
-
-
-
-
-                            </Button>
-
-
-
-                        </StackPanel>
-
-
-                    </Grid>
-
-
-
-                    <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-
-                        <ListView
-        HorizontalAlignment="Stretch"
-
-        ItemsSource="{Binding Items1}" >
-                            <ListView.View>
-                                <GridView>
-                                    <GridViewColumn
-                    DisplayMemberBinding="{Binding Code}"
+                    <ListView
+                            Margin="0,5"
+                            x:Name="StudentListView"
+                            BorderThickness="1"
+                            SelectionChanged="StudentListView_OnSelectionChanged"
+                           Style="{DynamicResource MaterialDesignListView}"
+                            HorizontalAlignment="Stretch" >
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn
+                    DisplayMemberBinding="{Binding Index}"
                     Header="序号" />
-                                    <GridViewColumn
+                                <GridViewColumn
                     DisplayMemberBinding="{Binding Name}"
                     Header="姓名" />
-                                    <GridViewColumn
-                    DisplayMemberBinding="{Binding Description}"
+                                <GridViewColumn
+                    DisplayMemberBinding="{Binding Sex}"
                     Header="性别" />
-                                    <GridViewColumn
-                    DisplayMemberBinding="{Binding Description}"
+                                <GridViewColumn
+                    DisplayMemberBinding="{Binding Number}"
                     Header="学号" />
-                                    <GridViewColumn
-                    DisplayMemberBinding="{Binding Description}"
+                                <GridViewColumn
+                    DisplayMemberBinding="{Binding System}"
                     Header="系别" />
-                                    <GridViewColumn
-                    DisplayMemberBinding="{Binding Description}"
+                                <GridViewColumn
+                    DisplayMemberBinding="{Binding CertificateNumber}"
                     Header="身份证号" />
-                                    <GridViewColumn
-                    DisplayMemberBinding="{Binding Description}"
+                                <GridViewColumn
+                    DisplayMemberBinding="{Binding Address}"
                     Header="家庭住址" />
-                                    <GridViewColumn
-                    DisplayMemberBinding="{Binding Description}"
+                                <GridViewColumn
+                    DisplayMemberBinding="{Binding Phone}"
                     Header="联系电话" />
-                                    <GridViewColumn
-                    DisplayMemberBinding="{Binding Description}"
+                                <GridViewColumn
+                    DisplayMemberBinding="{Binding Date}"
                     Header="入学时间" />
 
 
-                                </GridView>
-                            </ListView.View>
-                        </ListView>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
 
 
 
-                    </Grid>
+
 
 
                 </Grid>

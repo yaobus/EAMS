@@ -153,8 +153,7 @@
                             Margin="0,5"
                             x:Name="StudentListView"
                             BorderThickness="1"
-                           
-                            SelectionChanged="StudentListView_OnSelectionChanged"
+                           SelectionChanged="StudentListView_OnSelectionChanged"
                             Style="{DynamicResource MaterialDesignListView}"
                             HorizontalAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Auto" >
                             <ListView.View>

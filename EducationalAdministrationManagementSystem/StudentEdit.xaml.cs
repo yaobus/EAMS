@@ -672,11 +672,32 @@ namespace EducationalAdministrationManagementSystem
                 //新建档案
                 else
                 {
-                    sql = string.Format("INSERT INTO STUDENT_INFO  VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}','{26}','{27}','{28}','{29}','{30}','{31}','{32}','{33}','0')", id, name, sex, number, system, certificate, certificateNumber, address, phone, date, schoolName, company, majorLevel, majorType, majorName, majorNum, eMail, studentType, studentLevel, studentEdu, politics, nation, occupation, workCompany, health, census, postNum, engName, birthDay, code, graduation, sign, signType, teacher);
-                    Console.WriteLine(sql);
-                    //文本信息存储
-                    DbConnect.ModifySql(sql);
+                    sql = string.Format("SELECT * FROM student_info WHERE NUMBER = '{0}'", number);
+
+                    if (DbConnect.CountDataNumber(sql) < 1)
+                    {
+
+                        sql = string.Format(
+                            "INSERT INTO STUDENT_INFO  VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}','{26}','{27}','{28}','{29}','{30}','{31}','{32}','{33}','0')",
+                            id, name, sex, number, system, certificate, certificateNumber, address, phone, date,
+                            schoolName, company, majorLevel, majorType, majorName, majorNum, eMail, studentType,
+                            studentLevel, studentEdu, politics, nation, occupation, workCompany, health, census,
+                            postNum, engName, birthDay, code, graduation, sign, signType, teacher);
+                        Console.WriteLine(sql);
+                        //文本信息存储
+                        DbConnect.ModifySql(sql);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("此学号已存在！");
+                        return;
+                    }
+
+
                 }
+
+
 
                 sql = string.Format("SELECT * FROM portrait_img WHERE STUDENT_ID = '{0}'", id);
 

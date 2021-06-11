@@ -30,10 +30,11 @@ namespace EducationalAdministrationManagementSystem.UserPlan
         {
             
             InitializeComponent();
-            StudentListView.ItemsSource = TextualList;
+            
             LoadTextualData();
             
             LoadDefaultImage();
+            StudentListView.ItemsSource = TextualList;
         }
 
 
