@@ -31,7 +31,7 @@ namespace EducationalAdministrationManagementSystem.UserPlan
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.baidu.com/");
+            System.Diagnostics.Process.Start("https://github.com/yaobus/EAMS.git");
         }
     }
 }
