@@ -4,8 +4,15 @@
 
 
 
-    <s:String x:Key="MainTitle">教务管理系统</s:String>
-    <s:String x:Key="Login">登陆</s:String>
+
+
+    <s:String x:Key="LoginUM">请输入用户名</s:String>
+    <s:String x:Key="LoginPW">请输入密码</s:String>
+    <s:String x:Key="LoginRole">选择登入身份</s:String>
+    <s:String x:Key="LoginLogin">登录</s:String>
+    <s:String x:Key="LoginTitle">EAMS系统登录</s:String>
+
+
 
     <s:String x:Key="DbHost">数据库主机：</s:String>
     <s:String x:Key="DbPort">数据库端口：</s:String>
@@ -13,24 +20,75 @@
     <s:String x:Key="DbPassword">数据库密码：</s:String>
     <s:String x:Key="DbName">数据库名称：</s:String>
 
-    <s:String x:Key="Welcome">欢迎</s:String>
 
-    <s:String x:Key="Overview">全局总览</s:String>
-    <s:String x:Key="DepartmentManagement">院系专业</s:String>
-    <s:String x:Key="CoursePool">全部课程</s:String>
-    <s:String x:Key="Curriculum">课程规划</s:String>
-    <s:String x:Key="TeacherManagement">教师管理</s:String>
-    <s:String x:Key="StudentInfo">学籍管理</s:String>
-    <s:String x:Key="StudentAchievement">成绩管理</s:String>
-    <s:String x:Key="TextualResearch">考籍管理</s:String>
-    <s:String x:Key="PrizeInfo">奖惩信息</s:String>
-    <s:String x:Key="Cost">费用计划</s:String>
-    <s:String x:Key="CostInfo">费用结算</s:String>
+    <s:String x:Key="MainWelcome">欢迎</s:String>
+    <s:String x:Key="MainTitle">ESMS教务管理系统</s:String>
+    <s:String x:Key="MainOverview">全局总览</s:String>
+    <s:String x:Key="MainDepartment">院系专业</s:String>
+    <s:String x:Key="MainCoursePool">全部课程</s:String>
+    <s:String x:Key="MainCurriculum">课程规划</s:String>
+    <s:String x:Key="MainTeacher">教师管理</s:String>
+    <s:String x:Key="MainStudent">学籍管理</s:String>
+    <s:String x:Key="MainAchievement">成绩管理</s:String>
+    <s:String x:Key="MainTextual">考籍管理</s:String>
+    <s:String x:Key="MainPrize">奖惩信息</s:String>
+    <s:String x:Key="MainCost">费用计划</s:String>
+    <s:String x:Key="MainPay">费用结算</s:String>
+    <s:String x:Key="MainSetting">系统设置</s:String>
+    <s:String x:Key="MainUser">用户管理</s:String>
+    <s:String x:Key="MainAbout">关于程序</s:String>
+    <s:String x:Key="MainExit">退出程序</s:String>
 
-    <s:String x:Key="Setting">系统设置</s:String>
-    <s:String x:Key="UserManagement">用户管理</s:String>
-    <s:String x:Key="About">关于程序</s:String>
-    <s:String x:Key="Exit">退出程序</s:String>
+
+    <s:String x:Key="SE_StudentInfo">考生信息</s:String>
+    <s:String x:Key="SE_TextualInfo">考籍信息</s:String>
+    <s:String x:Key="SE_FindPhoto">浏览照片</s:String>
+    <s:String x:Key="SE_CancelEdit">放弃编辑</s:String>
+    <s:String x:Key="SE_Save">保存记录</s:String>
+    <s:String x:Key="SE_StudentName">考生姓名</s:String>
+    <s:String x:Key="SE_StudentSex">考生性别</s:String>
+    <s:String x:Key="SE_Num">准考证号</s:String>
+    <s:String x:Key="SE_Sys">所在系别</s:String>
+    <s:String x:Key="SE_Cert">证件类型</s:String>
+    <s:String x:Key="SE_CertNum">证件号码</s:String>
+    <s:String x:Key="SE_Add">考生地址</s:String>
+    <s:String x:Key="SE_Phone">考生电话</s:String>
+    <s:String x:Key="SE_SignDate">报名时间</s:String>
+    <s:String x:Key="SE_SN">学校名称</s:String>
+    <s:String x:Key="SE_Comp">助学单位</s:String>
+    <s:String x:Key="SE_Level">专业层次</s:String>
+    <s:String x:Key="SE_Type">专业类型</s:String>
+    <s:String x:Key="SE_MN">专业名称</s:String>
+    <s:String x:Key="SE_MNum">专业编号</s:String>
+    <s:String x:Key="SE_Email">电子邮箱</s:String>
+    <s:String x:Key="SE_SLevel">考生类别</s:String>
+    <s:String x:Key="SE_SType">考生类型</s:String>
+    <s:String x:Key="SE_SEdu">考生学历</s:String>
+    <s:String x:Key="SE_SPol">政治面貌</s:String>
+    <s:String x:Key="SE_SNation">考生民族</s:String>
+    <s:String x:Key="SE_SJob">考生职业</s:String>
+    <s:String x:Key="SE_SComp">工作单位</s:String>
+    <s:String x:Key="SE_SHeath">身体状况</s:String>
+    <s:String x:Key="SE_SReg">户籍类型</s:String>
+    <s:String x:Key="SE_SPost">考生邮编</s:String>
+    <s:String x:Key="SE_SEName">英文名</s:String>
+    <s:String x:Key="SE_SBDay">出生日期</s:String>
+    <s:String x:Key="SE_Code">集体代码</s:String>
+    <s:String x:Key="SE_Delay">延期毕业</s:String>
+    <s:String x:Key="SE_CardSign">发卡标志</s:String>
+    <s:String x:Key="SE_SignType">报名形式</s:String>
+    <s:String x:Key="SE_Master">班主任</s:String>
+
+
+
+
+
+
+
+
+
+
+
 
 
 </ResourceDictionary>

@@ -13,7 +13,7 @@
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"    
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="{DynamicResource Login}" Height="400" Width="600" WindowStyle="None" MinWidth="600" MinHeight="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" MouseDown="Login_OnMouseDown" Loaded="Login_OnLoaded">
+        Title="{DynamicResource LoginLogin}" Height="400" Width="600" WindowStyle="None" MinWidth="600" MinHeight="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" MouseDown="Login_OnMouseDown" Loaded="Login_OnLoaded">
     <materialDesign:TransitioningContent  OpeningEffect="{materialDesign:TransitionEffect SlideInFromBottom, Duration=0:0:0.2}">
         <Grid>
             <Grid Height="40" VerticalAlignment="Top">
@@ -26,7 +26,7 @@
                     <Button x:Name="SettingButton"  VerticalAlignment="Bottom" Width="40" Height="40"  Background="{x:Null}" BorderBrush="{x:Null}"  Padding="0" Foreground="{x:Null}" Click="SettingButton_OnClick">
                         <materialDesign:PackIcon Kind="Cogs" Height="30" Width="30" Foreground="{DynamicResource MaterialDesignToolForeground}"></materialDesign:PackIcon>
                     </Button>
-                    <Label Content="{DynamicResource Login}"  VerticalAlignment="Center" FontSize="16" FontFamily="arial"></Label>
+                    <Label Content="{DynamicResource LoginTitle}"  VerticalAlignment="Center" FontSize="16" FontFamily="arial"></Label>
 
                 </StackPanel>
                 <StackPanel Margin="0,0,10,0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
@@ -58,7 +58,7 @@
                                 AcceptsReturn="False"
                                 TextWrapping="NoWrap"
                                 VerticalScrollBarVisibility="Auto"
-                                materialDesign:HintAssist.Hint="User name"
+                                materialDesign:HintAssist.Hint="{DynamicResource LoginUM}"
                                 />
                     <PasswordBox
                                 Margin="5"
@@ -66,13 +66,13 @@
                                 Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
                                 VerticalAlignment="Top"
                                 Password="5896321470"
-                               materialDesign:HintAssist.Hint="Password" />
+                               materialDesign:HintAssist.Hint="{DynamicResource LoginPW}" />
                     <ComboBox
                                 Margin="5"
                                 x:Name="UserTypeCombobox"
                                 IsEnabled="False"
                                 Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                materialDesign:HintAssist.Hint="身份选择"/>
+                                materialDesign:HintAssist.Hint="{DynamicResource LoginRole}"/>
                     <Button
                                 x:Name="LoginButton"
                                 Margin="5"
@@ -82,7 +82,7 @@
                                 Click="LoginButton_OnClick">
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                             <materialDesign:PackIcon Kind="Login" Width="20" Height="30"></materialDesign:PackIcon>
-                            <TextBlock Text="{DynamicResource Login}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                            <TextBlock Text="{DynamicResource LoginLogin}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
                         </StackPanel>
                     </Button>
                     <StackPanel Height="0" Width="400" Margin="0,10,0,0" HorizontalAlignment="Stretch" Orientation="Horizontal" />

@@ -47,7 +47,7 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
-                    <TextBlock Margin="0,0,10,0" Text="{DynamicResource Welcome}" FontSize="24"></TextBlock>
+                    <TextBlock Margin="0,0,10,0" Text="{DynamicResource MainWelcome}" FontSize="24"></TextBlock>
 
                     <TextBlock Margin="0,0,10,0"  Text="Administrator" FontSize="24"></TextBlock>
                     <materialDesign:PackIcon Margin="0,0,10,0"  Kind="User" Height="32" Width="32"></materialDesign:PackIcon>
@@ -73,28 +73,28 @@
                 <ListViewItem Height="40" >
                     <StackPanel Orientation="Horizontal" >
                         <materialDesign:PackIcon Kind="ViewDashboard" Margin="0,0,5,0" Width="24" Height="24"/>
-                        <TextBlock Text="{DynamicResource Overview}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource MainOverview}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem Height="40"  >
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Company" Margin="0,0,5,0" Width="24" Height="24"/>
-                        <TextBlock Text="{DynamicResource DepartmentManagement}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource MainDepartment}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem Height="40"  >
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Blur" Margin="0,0,5,0" Width="24" Height="24"/>
-                        <TextBlock Text="{DynamicResource CoursePool}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource MainCoursePool}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem Height="40"  >
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="BlurLinear" Margin="0,0,5,0" Width="24" Height="24"/>
-                        <TextBlock Text="{DynamicResource Curriculum}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource MainCurriculum}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ListViewItem>
 
@@ -102,49 +102,49 @@
                 <ListViewItem Height="40"  >
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Teacher" Margin="0,0,5,0" Width="24" Height="24"/>
-                        <TextBlock Text="{DynamicResource TeacherManagement}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource MainTeacher}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem Height="40"   >
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Archive" Margin="0,0,5,0" Width="24" Height="24"/>
-                        <TextBlock Text="{DynamicResource StudentInfo}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource MainStudent}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem Height="40"  >
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Achievement" Margin="0,0,5,0" Width="24" Height="24"/>
-                        <TextBlock Text="{DynamicResource StudentAchievement}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource MainAchievement}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem Height="40"  >
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="BookEducation" Margin="0,0,5,0" Width="24" Height="24"/>
-                        <TextBlock Text="{DynamicResource TextualResearch}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource MainTextual}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem >
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Prize" Margin="0,0,5,0" Width="24" Height="24"/>
-                        <TextBlock Text="{DynamicResource PrizeInfo}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource MainPrize}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem >
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Gold" Margin="0,0,5,0" Width="24" Height="24"/>
-                        <TextBlock Text="{DynamicResource Cost}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource MainCost}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem >
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="CashCheck" Margin="0,0,5,0" Width="24" Height="24"/>
-                        <TextBlock Text="{DynamicResource CostInfo}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource MainPay}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ListViewItem>
             </ListView>
@@ -166,14 +166,14 @@
                     
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Settings" Margin="0,0,5,0" Width="24" Height="24"/>
-                        <TextBlock Text="{DynamicResource Setting}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource MainSetting}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem Height="40"  Visibility="Hidden">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Users" Margin="0,0,5,0" Width="24" Height="24"/>
-                        <TextBlock Text="{DynamicResource UserManagement}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource MainUser}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ListViewItem>
 
@@ -181,14 +181,14 @@
                 <ListViewItem Height="40"  >
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="About" Margin="0,0,5,0" Width="24" Height="24"/>
-                        <TextBlock Text="{DynamicResource About}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource MainAbout}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem Height="40"  >
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="ExitToApp" Margin="0,0,5,0" Width="24" Height="24"/>
-                        <TextBlock Text="{DynamicResource Exit}" VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource MainExit}" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ListViewItem>
 

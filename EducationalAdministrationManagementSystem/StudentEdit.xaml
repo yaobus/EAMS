@@ -22,7 +22,7 @@
 
         </Grid.ColumnDefinitions>
 
-        <GroupBox Header="考生信息" Margin="5">
+        <GroupBox Header="{DynamicResource SE_StudentInfo}" Margin="5">
 
             <Grid >
 
@@ -65,7 +65,7 @@
                         ToolTip="浏览并选择证件照" >
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                             <materialDesign:PackIcon Kind="FileFind" Width="20" Height="20"></materialDesign:PackIcon>
-                            <TextBlock Text="浏览照片" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                            <TextBlock Text="{DynamicResource SE_FindPhoto}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
                         </StackPanel>
 
 
@@ -80,7 +80,7 @@
                     ToolTip="放弃正在编辑的这条记录并关闭窗口" >
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                             <materialDesign:PackIcon Kind="CancelBox" Width="20" Height="20"></materialDesign:PackIcon>
-                            <TextBlock Text="放弃编辑" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                            <TextBlock Text="{DynamicResource SE_CancelEdit}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
                         </StackPanel>
 
 
@@ -96,7 +96,7 @@
                             ToolTip="保存正在编辑的这条记录并关闭窗口" >
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                             <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"></materialDesign:PackIcon>
-                            <TextBlock Text="保存记录" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                            <TextBlock Text="{DynamicResource SE_Save}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
                         </StackPanel>
 
 
@@ -129,7 +129,7 @@
 
 
 
-        <GroupBox Grid.Column="1" Header="考籍信息" Margin="0,5,5,5">
+        <GroupBox Grid.Column="1" Header="{DynamicResource SE_TextualInfo}" Margin="0,5,5,5">
 
             <Grid Grid.Row="0" Grid.Column="2" >
 
@@ -146,14 +146,14 @@
                     AcceptsReturn="False"
                     TextWrapping="NoWrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="考生姓名"
+                    materialDesign:HintAssist.Hint="{DynamicResource SE_StudentName}"
                     />
                     <ComboBox
                             x:Name="GenderCombobox"
                             Margin="0,5"
                           Width="200"
                           Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                          materialDesign:HintAssist.Hint="考生性别"
+                          materialDesign:HintAssist.Hint="{DynamicResource SE_StudentSex}"
                               
                       />
 
@@ -166,7 +166,7 @@
                     AcceptsReturn="False"
                     TextWrapping="NoWrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="准考证号"
+                    materialDesign:HintAssist.Hint="{DynamicResource SE_Num}"
                 />
 
 
@@ -176,14 +176,14 @@
                         x:Name="SystemCombobox"
                         SelectionChanged="SystemCombobox_OnSelectionChanged"
                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                        materialDesign:HintAssist.Hint="所在系别"/>
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_Sys}"/>
 
                     <ComboBox
                             Margin="0,5"
                             Width="200"
                             x:Name="CertificateCombobox"
                             Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                            materialDesign:HintAssist.Hint="证件类型"/>
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_Cert}"/>
 
 
                     <TextBox
@@ -195,7 +195,7 @@
                     AcceptsReturn="False"
                     TextWrapping="NoWrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="证件号"
+                    materialDesign:HintAssist.Hint="{DynamicResource SE_CertNum}"
                 />
 
                     <TextBox
@@ -207,7 +207,7 @@
                         AcceptsReturn="False"
                         TextWrapping="Wrap"
                         VerticalScrollBarVisibility="Auto"
-                        materialDesign:HintAssist.Hint="考生地址"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_Add}"
                     />
 
                     <TextBox
@@ -218,14 +218,14 @@
                         AcceptsReturn="False"
                         TextWrapping="NoWrap"
                         VerticalScrollBarVisibility="Auto"
-                        materialDesign:HintAssist.Hint="联系电话"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_Phone}"
                     />
 
                     <DatePicker
                             x:Name="DatePicker"
                         Margin="0,5"
                         Width="200"
-                        materialDesign:HintAssist.Hint="报名时间"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_SignDate}"
                         Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
 
                     <TextBox
@@ -236,7 +236,7 @@
                             AcceptsReturn="False"
                             TextWrapping="NoWrap"
                             VerticalScrollBarVisibility="Auto"
-                            materialDesign:HintAssist.Hint="学校名称"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_SN}"
                         />
                     <TextBox
                             x:Name="CompanyTextBox"
@@ -246,7 +246,7 @@
                             AcceptsReturn="False"
                             TextWrapping="NoWrap"
                             VerticalScrollBarVisibility="Auto"
-                            materialDesign:HintAssist.Hint="助学单位"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_Comp}"
                         />
 
                     <ComboBox
@@ -254,7 +254,7 @@
                             Width="200"
                             x:Name="MajorComboBox"
                             Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                            materialDesign:HintAssist.Hint="专业层次"/>
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_Level}"/>
 
 
                     <TextBox
@@ -265,7 +265,7 @@
                             AcceptsReturn="False"
                             TextWrapping="NoWrap"
                             VerticalScrollBarVisibility="Auto"
-                            materialDesign:HintAssist.Hint="专业类型"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_Type}"
                         />
                     <ComboBox
                         Margin="0,5"
@@ -273,7 +273,7 @@
                         x:Name="MajorNameComboBox"
                         SelectionChanged="MajorNameComboBox_OnSelectionChanged"
                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                        materialDesign:HintAssist.Hint="专业名称"/>
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_MN}"/>
 
 
                     <TextBox
@@ -285,7 +285,7 @@
                             TextWrapping="NoWrap"
                             IsEnabled="False"
                             VerticalScrollBarVisibility="Auto"
-                            materialDesign:HintAssist.Hint="专业编码"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_MNum}"
                         />
 
 
@@ -299,7 +299,7 @@
                             AcceptsReturn="False"
                             TextWrapping="NoWrap"
                             VerticalScrollBarVisibility="Auto"
-                            materialDesign:HintAssist.Hint="电子邮箱"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_Email}"
                         />
 
                     <ComboBox
@@ -307,7 +307,7 @@
                         Width="200"
                         x:Name="StudentTypeCombobox"
                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                        materialDesign:HintAssist.Hint="考生类别"/>
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_SLevel}"/>
 
 
 
@@ -316,7 +316,7 @@
                         Width="200"
                         x:Name="StudentLevelCombobox"
                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                        materialDesign:HintAssist.Hint="考生类型"/>
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_SType}"/>
                        
 
                     <TextBox
@@ -327,7 +327,7 @@
                             AcceptsReturn="False"
                             TextWrapping="NoWrap"
                             VerticalScrollBarVisibility="Auto"
-                            materialDesign:HintAssist.Hint="考生学历"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_SEdu}"
                         />
 
                     <ComboBox
@@ -335,14 +335,14 @@
                             Width="200"
                             x:Name="PoliticsCombobox"
                             Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                            materialDesign:HintAssist.Hint="政治面貌"/>
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_SPol}"/>
 
                     <ComboBox
                             Margin="0,5"
                             Width="200"
                             x:Name="NationCombobox"
                             Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                            materialDesign:HintAssist.Hint="考生民族"/>
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_SNation}"/>
 
                     <TextBox
                             x:Name="OccupationTextBox"
@@ -352,7 +352,7 @@
                             AcceptsReturn="False"
                             TextWrapping="NoWrap"
                             VerticalScrollBarVisibility="Auto"
-                            materialDesign:HintAssist.Hint="考生职业"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_SJob}"
                         />
 
                     <TextBox
@@ -363,7 +363,7 @@
                             AcceptsReturn="False"
                             TextWrapping="NoWrap"
                             VerticalScrollBarVisibility="Auto"
-                            materialDesign:HintAssist.Hint="工作单位"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_SComp}"
                         />
 
                     <TextBox
@@ -374,7 +374,7 @@
                         AcceptsReturn="False"
                         TextWrapping="NoWrap"
                         VerticalScrollBarVisibility="Auto"
-                        materialDesign:HintAssist.Hint="身体状况"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_SHeath}"
                     />
 
                     <ComboBox
@@ -382,7 +382,7 @@
                             Width="200"
                             x:Name="CensusCombobox"
                             Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                            materialDesign:HintAssist.Hint="户籍地"/>
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_SReg}"/>
 
                     <TextBox
                         x:Name="PostNumberTextBox"
@@ -392,7 +392,7 @@
                         AcceptsReturn="False"
                         TextWrapping="NoWrap"
                         VerticalScrollBarVisibility="Auto"
-                        materialDesign:HintAssist.Hint="考生邮编"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_SPost}"
                     />
 
                     <TextBox
@@ -403,7 +403,7 @@
                         AcceptsReturn="False"
                         TextWrapping="NoWrap"
                         VerticalScrollBarVisibility="Auto"
-                        materialDesign:HintAssist.Hint="英文名称"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_SEName}"
                     />
 
                     <DatePicker
@@ -412,7 +412,7 @@
                         Width="200"
                         Style="{StaticResource MaterialDesignOutlinedDatePicker}"
 
-                        materialDesign:HintAssist.Hint="出生日期"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_SBDay}"
                     />
 
                     <TextBox
@@ -423,7 +423,7 @@
                             AcceptsReturn="False"
                             TextWrapping="NoWrap"
                             VerticalScrollBarVisibility="Auto"
-                            materialDesign:HintAssist.Hint="集体代码"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_Code}"
                         />
 
                     <TextBox
@@ -434,7 +434,7 @@
                         AcceptsReturn="False"
                         TextWrapping="NoWrap"
                         VerticalScrollBarVisibility="Auto"
-                        materialDesign:HintAssist.Hint="延期毕业"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_Delay}"
                     />
 
 
@@ -446,7 +446,7 @@
                             AcceptsReturn="False"
                             TextWrapping="NoWrap"
                             VerticalScrollBarVisibility="Auto"
-                            materialDesign:HintAssist.Hint="发卡标志"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_CardSign}"
                         />
 
                     <TextBox
@@ -457,7 +457,7 @@
                             AcceptsReturn="False"
                             TextWrapping="NoWrap"
                             VerticalScrollBarVisibility="Auto"
-                            materialDesign:HintAssist.Hint="报名形式"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_SignType}"
                         />
 
                     <ComboBox
@@ -465,7 +465,7 @@
                         Margin="0,5"
                         Width="200"
                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                        materialDesign:HintAssist.Hint="班主任"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_Master}"
                               
                     />
 
