@@ -280,6 +280,8 @@ namespace EducationalAdministrationManagementSystem.UserPlan
 
         private void StretchButton_OnClick(object sender, RoutedEventArgs e)
         {
+            ClearData();
+
             GlobalFunction.FileClass.AnalysisDatabaseConfig(); //解析数据库配置
 
             if (GlobalVariable.DbConnectInfo != null)
@@ -364,7 +366,7 @@ namespace EducationalAdministrationManagementSystem.UserPlan
             }
 
             DbConnect.MySqlConnection.Close();
-
+            
 
         }
 
@@ -374,6 +376,25 @@ namespace EducationalAdministrationManagementSystem.UserPlan
             {
                 StretchButton_OnClick(null,null);
             }
+        }
+
+
+        /// <summary>
+        /// 清除编辑框的内容
+        /// </summary>
+        private void ClearData()
+        {
+            StudentNameTextBox.Text = "";
+            GenderCombobox.SelectedIndex = -1;
+            NumberTextBox.Text = "";
+            SystemTextBox.Text = "";
+            CertificateTextBox.Text = "";
+            AddressTextBox.Text = "";
+            PhoneTextBox.Text = "";
+            DatePicker.Text = "";
+
+
+
         }
     }
 }
