@@ -29,7 +29,7 @@
             <GroupBox
             Grid.Column="0"
             MaxWidth="500"
-            Header="学生列表"
+            Header="{DynamicResource AP_StuList}"
             Style="{DynamicResource MaterialDesignGroupBox}"
             Margin="0,5,5,5">
 
@@ -43,21 +43,21 @@
                     SelectionChanged="DepartmentCombobox_OnSelectionChanged"
                     x:Name="DepartmentCombobox"
                     Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                    materialDesign:HintAssist.Hint="学院"/>
+                    materialDesign:HintAssist.Hint="{DynamicResource AP_Department}"/>
 
                     <ComboBox
                     Margin="0,5"
                     x:Name="SystemCombobox"
                     SelectionChanged="SystemCombobox_OnSelectionChanged"
                     Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                    materialDesign:HintAssist.Hint="系部"/>
+                    materialDesign:HintAssist.Hint="{DynamicResource AP_System}"/>
 
                     <ComboBox
                     Margin="0,5"
                     x:Name="MajorCombobox"
                     SelectionChanged="MajorCombobox_OnSelectionChanged"
                     Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                    materialDesign:HintAssist.Hint="专业"/>
+                    materialDesign:HintAssist.Hint="{DynamicResource AP_Major}"/>
 
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -73,7 +73,7 @@
                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                 VerticalAlignment="Top"
                                 HorizontalAlignment="Stretch"
-                                materialDesign:HintAssist.Hint="搜索姓名" />
+                                materialDesign:HintAssist.Hint="{DynamicResource AP_SearchName}" />
 
                         </Grid>
 
@@ -84,7 +84,7 @@
                             <Button Margin="5,0,0,0" Height="51" Style="{StaticResource MaterialDesignOutlinedButton}" ToolTip="关键字">
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                     <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center"/>
-                                    <TextBlock Text="Search" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                                    <TextBlock Text="{DynamicResource AP_Search}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
                                 </StackPanel>
 
                             </Button>
@@ -109,15 +109,15 @@
                                 <GridViewColumn
                                 DisplayMemberBinding="{Binding Index}"
                                   
-                                  Header="序号" />
+                                  Header="{DynamicResource AP_StuIndex}" />
                                 <GridViewColumn
                                 DisplayMemberBinding="{Binding Id}"
 
-                                  Header="学生ID" />
+                                  Header="{DynamicResource AP_StuId}" />
                                 <GridViewColumn
                                 DisplayMemberBinding="{Binding Name}"
                                   
-                                  Header="姓名" />
+                                  Header="{DynamicResource AP_StuName}" />
 
 
                             </GridView>
@@ -172,7 +172,7 @@
                     AcceptsReturn="False"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="学生姓名"
+                    materialDesign:HintAssist.Hint="{DynamicResource AP_StuName}"
                     />
 
 
@@ -187,7 +187,7 @@
                     AcceptsReturn="False"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="学号"
+                    materialDesign:HintAssist.Hint="{DynamicResource AP_StuId}"
                 />
 
                     <TextBox
@@ -199,7 +199,7 @@
                     AcceptsReturn="False"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="课程ID"
+                    materialDesign:HintAssist.Hint="{DynamicResource AP_CouId}"
                 />
 
                     <TextBox
@@ -211,7 +211,7 @@
                     AcceptsReturn="False"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="课程名称"
+                    materialDesign:HintAssist.Hint="{DynamicResource AP_CouName}"
                 />
 
                     <TextBox
@@ -223,7 +223,7 @@
                     TextWrapping="NoWrap"
                     IsEnabled="False"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="课程学分"
+                    materialDesign:HintAssist.Hint="{DynamicResource AP_CouScore}"
                 />
 
                     <TextBox
@@ -234,7 +234,7 @@
                     AcceptsReturn="False"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="平时成绩"
+                    materialDesign:HintAssist.Hint="{DynamicResource AP_Daily}"
                 />
 
 
@@ -246,7 +246,7 @@
                     AcceptsReturn="False"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="考试成绩"
+                    materialDesign:HintAssist.Hint="{DynamicResource AP_Last}"
                 />
 
                     <TextBox
@@ -257,7 +257,7 @@
                     AcceptsReturn="False"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="获得学分"
+                    materialDesign:HintAssist.Hint="{DynamicResource AP_GetScore}"
                 />
 
 <!--
@@ -280,7 +280,7 @@
                         ToolTip="保存正在编辑的这条记录" >
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                             <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"></materialDesign:PackIcon>
-                            <TextBlock Text="保存记录" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                            <TextBlock Text="{DynamicResource AP_Save}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
                         </StackPanel>
 
 
@@ -312,25 +312,25 @@
                                 <GridViewColumn
                                         
                                     DisplayMemberBinding="{Binding Index}"
-                                    Header="序号" />
+                                    Header="{DynamicResource AP_StuIndex}" />
                                 <GridViewColumn
                                     DisplayMemberBinding="{Binding CourseId}"
-                                    Header="课程ID" />
+                                    Header="{DynamicResource AP_CouId}" />
                                 <GridViewColumn
                                     DisplayMemberBinding="{Binding CourseName}"
-                                    Header="课程名称" />
+                                    Header="{DynamicResource AP_CouName}" />
                                 <GridViewColumn
                                     DisplayMemberBinding="{Binding Score}"
-                                    Header="课程学分" />
+                                    Header="{DynamicResource AP_CouScore}" />
                                 <GridViewColumn
                                     DisplayMemberBinding="{Binding DailyScore}"
-                                    Header="平时成绩" />
+                                    Header="{DynamicResource AP_Daily}" />
                                 <GridViewColumn
                                     DisplayMemberBinding="{Binding LastScore}"
-                                    Header="考试成绩" />
+                                    Header="{DynamicResource AP_Last}" />
                                 <GridViewColumn
                                     DisplayMemberBinding="{Binding CreditScore}"
-                                    Header="获得学分" />
+                                    Header="{DynamicResource AP_GetScore}" />
 
                             </GridView>
                         </ListView.View>

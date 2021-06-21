@@ -80,7 +80,25 @@
     <s:String x:Key="SE_Master">班主任</s:String>
 
 
-
+    <s:String x:Key="AP_StuList">学生列表</s:String>
+    <s:String x:Key="AP_StuAcEd">学生成绩编辑</s:String>
+    <s:String x:Key="AP_StuAcList">学生成绩列表</s:String>
+    <s:String x:Key="AP_Department">学院</s:String>
+    <s:String x:Key="AP_System">系部</s:String>
+    <s:String x:Key="AP_Major">专业</s:String>
+    <s:String x:Key="AP_SearchName">搜索姓名</s:String>
+    <s:String x:Key="AP_Search">搜索</s:String>
+    <s:String x:Key="AP_StuIndex">序号</s:String>
+    <s:String x:Key="AP_StuId">学号</s:String>
+    <s:String x:Key="AP_StuName">姓名</s:String>
+    <s:String x:Key="AP_CouId">课程ID</s:String>
+    <s:String x:Key="AP_CouName">课程名称</s:String>
+    <s:String x:Key="AP_CouScore">课程学分</s:String>
+    <s:String x:Key="AP_Daily">平时成绩</s:String>
+    <s:String x:Key="AP_Last">考试成绩</s:String>
+    <s:String x:Key="AP_GetScore">获得学分</s:String>
+    <s:String x:Key="AP_Save">保存记录</s:String>
+    <s:String x:Key="AP_SaveTip">保存正在编辑的这条记录</s:String>
 
 
 
