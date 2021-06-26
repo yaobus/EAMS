@@ -28,7 +28,7 @@
         <GroupBox
                 Grid.Column="0"
                 MaxWidth="300"
-                Header="课程信息"
+                Header="{DynamicResource AC_CuInfo}"
                 Style="{DynamicResource MaterialDesignGroupBox}"
                 Margin="5,5,0,5">
 
@@ -42,7 +42,7 @@
                         AcceptsReturn="False"
                         TextWrapping="Wrap"
                         VerticalScrollBarVisibility="Auto"
-                        materialDesign:HintAssist.Hint="课程名称"/>
+                        materialDesign:HintAssist.Hint="{DynamicResource AC_CuName}"/>
 
                 <TextBox
                     x:Name="CurriculumNumTextBox"
@@ -52,7 +52,7 @@
                     AcceptsReturn="False"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="课程编号"/>
+                    materialDesign:HintAssist.Hint="{DynamicResource AC_CuNum}"/>
 
                 <TextBox
                     x:Name="BookNameTextBox"
@@ -62,7 +62,7 @@
                     AcceptsReturn="False"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="教材名称"/>
+                    materialDesign:HintAssist.Hint="{DynamicResource AC_BookName}"/>
 
                 <TextBox
                     x:Name="BookAuthorTextBox"
@@ -72,7 +72,7 @@
                     AcceptsReturn="False"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="编者"/>
+                    materialDesign:HintAssist.Hint="{DynamicResource AC_BookAuthor}"/>
 
 
                 <TextBox
@@ -83,7 +83,7 @@
                     AcceptsReturn="False"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="出版社"/>
+                    materialDesign:HintAssist.Hint="{DynamicResource AC_BookPress}"/>
 
 
 
@@ -96,17 +96,17 @@
                     TextWrapping="Wrap"
                     Height="100"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="备注"/>
+                    materialDesign:HintAssist.Hint="{DynamicResource AC_BookNote}"/>
 
                 <Button
                     x:Name="DelButton"
                     Margin="0,5"
                     Click="DelButton_OnClick"
                     Style="{StaticResource MaterialDesignOutlinedButton}"
-                    ToolTip="删除当前课程" >
+                    ToolTip="{DynamicResource AC_Deltip}" >
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                         <materialDesign:PackIcon Kind="Delete" Width="20" Height="20"/>
-                        <TextBlock Text="删除课程" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                            <TextBlock Text="{DynamicResource AC_Del}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
                     </StackPanel>
 
 
@@ -118,10 +118,10 @@
                     Margin="0,5"
                     Click="NewButton_OnClick"
                     Style="{StaticResource MaterialDesignOutlinedButton}"
-                    ToolTip="新建课程" >
+                    ToolTip="{DynamicResource AC_NewTip}" >
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                         <materialDesign:PackIcon Kind="Edit" Width="20" Height="20"></materialDesign:PackIcon>
-                        <TextBlock Text="新建课程" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                            <TextBlock Text="{DynamicResource AC_New}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
                     </StackPanel>
 
 
@@ -134,10 +134,10 @@
                     Margin="0,5"
                     Click="SaveButton_OnClick"
                     Style="{StaticResource MaterialDesignOutlinedButton}"
-                    ToolTip="保存课程" >
+                    ToolTip="{DynamicResource AC_SaveTip}" >
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                         <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"></materialDesign:PackIcon>
-                        <TextBlock Text="保存课程" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                            <TextBlock Text="{DynamicResource AC_Save}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
                     </StackPanel>
 
 
@@ -152,7 +152,7 @@
 
         <GroupBox
                 Grid.Column="1"
-                Header="全部课程列表"
+                Header="{DynamicResource AC_ALList}"
                 Style="{DynamicResource MaterialDesignGroupBox}"
                 Margin="5,5,5,5">
             <ListView
@@ -165,30 +165,30 @@
                         <GridViewColumn
                                         
                             DisplayMemberBinding="{Binding Index}"
-                            Header="序号" />
+                            Header="{DynamicResource AC_Index}" />
                         <GridViewColumn
                             DisplayMemberBinding="{Binding CourseId}"
-                            Header="课程ID" />
+                            Header="{DynamicResource AC_CuId}" />
                         <GridViewColumn
                             DisplayMemberBinding="{Binding CourseName}"
-                            Header="课程名称" />
+                            Header="{DynamicResource AC_CuName}" />
                         <GridViewColumn
                             DisplayMemberBinding="{Binding TeachBook}"
-                            Header="教材名称" />
+                            Header="{DynamicResource AC_BookName}" />
                         <GridViewColumn
                             DisplayMemberBinding="{Binding BookAuthor}"
-                            Header="编者" />
+                            Header="{DynamicResource AC_BookAuthor}" />
                         <GridViewColumn
                             DisplayMemberBinding="{Binding BookPress}"
-                            Header="出版社" />
+                            Header="{DynamicResource AC_BookPress}" />
 
                         <GridViewColumn
                             DisplayMemberBinding="{Binding Note}"
-                            Header="备注" />
+                            Header="{DynamicResource AC_BookNote}" />
                         <GridViewColumn
                             Width="0"
                             DisplayMemberBinding="{Binding DelStatus}"
-                            Header="出版社" />
+                            Header="" />
                     </GridView>
                 </ListView.View>
             </ListView>

@@ -100,6 +100,22 @@
     <s:String x:Key="AP_Save">保存记录</s:String>
     <s:String x:Key="AP_SaveTip">保存正在编辑的这条记录</s:String>
 
+    <s:String x:Key="AC_CuInfo">课程信息</s:String>
+    <s:String x:Key="AC_ALList">全部课程列表</s:String>
+    <s:String x:Key="AC_CuName">课程名称</s:String>
+    <s:String x:Key="AC_CuNum">课程编号</s:String>
+    <s:String x:Key="AC_BookName">教材名称</s:String>
+    <s:String x:Key="AC_BookAuthor">编者</s:String>
+    <s:String x:Key="AC_BookPress">出版社</s:String>
+    <s:String x:Key="AC_BookNote">备注</s:String>
+    <s:String x:Key="AC_Del">删除课程</s:String>
+    <s:String x:Key="AC_New">新建课程</s:String>
+    <s:String x:Key="AC_Save">保存课程</s:String>
+    <s:String x:Key="AC_Deltip">删除当前课程</s:String>
+    <s:String x:Key="AC_NewTip">新建一门课程</s:String>
+    <s:String x:Key="AC_SaveTip">保存当前编辑的课程</s:String>
+    <s:String x:Key="AC_Index">序号</s:String>
+    <s:String x:Key="AC_CuId">课程ID</s:String>
 
 
 
