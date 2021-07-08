@@ -26,7 +26,7 @@
         <GroupBox
             Grid.Column="0"
             MaxWidth="300"
-            Header="专业信息"
+            Header="{DynamicResource CP_MajName}"
             Style="{DynamicResource MaterialDesignGroupBox}"
             Margin="5,5,0,5">
 
@@ -37,21 +37,21 @@
                     x:Name="DepartmentCombobox"
                     SelectionChanged="DepartmentCombobox_OnSelectionChanged"
                     Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                    materialDesign:HintAssist.Hint="学院"/>
+                    materialDesign:HintAssist.Hint="{DynamicResource CP_Department}"/>
 
                 <ComboBox
                     Margin="0,5"
                     SelectionChanged="SystemCombobox_OnSelectionChanged"
                     x:Name="SystemCombobox"
                     Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                    materialDesign:HintAssist.Hint="系部"/>
+                    materialDesign:HintAssist.Hint="{DynamicResource CP_System}"/>
 
                 <ComboBox
                     Margin="0,5"
                     x:Name="MajorCombobox"
                     SelectionChanged="MajorCombobox_OnSelectionChanged"
                     Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                    materialDesign:HintAssist.Hint="专业"/>
+                    materialDesign:HintAssist.Hint="{DynamicResource CP_Major}"/>
 
                 <TextBox
                     x:Name="CostNameTextBox"
@@ -61,13 +61,13 @@
                     AcceptsReturn="False"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="费用信息"/>
+                    materialDesign:HintAssist.Hint="{DynamicResource CP_CostInfo}"/>
                 <ComboBox
                     Margin="0,5"
                     x:Name="CostTypeCombobox"
                     SelectionChanged="MajorCombobox_OnSelectionChanged"
                     Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                    materialDesign:HintAssist.Hint="费用类型"/>
+                    materialDesign:HintAssist.Hint="{DynamicResource CP_CostType}"/>
 
                 <TextBox
                     x:Name="CostTextBox"
@@ -77,7 +77,7 @@
                     AcceptsReturn="False"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="金额"/>
+                    materialDesign:HintAssist.Hint="{DynamicResource CP_Cost}"/>
 
                 <TextBox
                     x:Name="CostNoteTextBox"
@@ -86,11 +86,11 @@
                     VerticalAlignment="Top"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="费用详细说明"/>
+                    materialDesign:HintAssist.Hint="{DynamicResource CP_CostNote}"/>
                 <DatePicker
                     x:Name="DatePicker"
                     Margin="0,5"
-                    materialDesign:HintAssist.Hint="费用填写时间"
+                    materialDesign:HintAssist.Hint="{DynamicResource CP_Time}"
                     Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
                 <TextBox
                     x:Name="SumTextBox"
@@ -100,7 +100,7 @@
                     IsEnabled="False"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="应缴纳费用合计"/>
+                    materialDesign:HintAssist.Hint="{DynamicResource CP_CostSum}"/>
 <!--
                 <Button
                     x:Name="DelButton"
@@ -120,10 +120,10 @@
                     Margin="0,5"
                     Click="AddButton_OnClick"
                     Style="{StaticResource MaterialDesignOutlinedButton}"
-                    ToolTip="添加费用信息到当前专业" >
+                    ToolTip="{DynamicResource CP_AddTip}" >
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                         <materialDesign:PackIcon Kind="AddBox" Width="20" Height="20"/>
-                        <TextBlock Text="添加费用信息" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                            <TextBlock Text="{DynamicResource CP_Add}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
                     </StackPanel>
 
                 </Button>
@@ -156,7 +156,7 @@
         <GroupBox
             Grid.Column="1"
 
-            Header="该专业需缴纳费用信息"
+            Header="{DynamicResource CP_MajPay}"
             Style="{DynamicResource MaterialDesignGroupBox}"
             Margin="5,5,0,5">
             <ListView
@@ -169,25 +169,25 @@
                         <GridViewColumn
                                         
                             DisplayMemberBinding="{Binding Index}"
-                            Header="序号" />
+                            Header="{DynamicResource CP_Index}" />
                         <GridViewColumn
                             DisplayMemberBinding="{Binding MajorId}"
-                            Header="专业ID" />
+                            Header="{DynamicResource CP_MajId}" />
                         <GridViewColumn
                             DisplayMemberBinding="{Binding CostName}"
-                            Header="费用名称" />
+                            Header="{DynamicResource CP_CostInfo}" />
                         <GridViewColumn
                             DisplayMemberBinding="{Binding CostType}"
-                            Header="费用类型" />
+                            Header="{DynamicResource CP_CostType}" />
                         <GridViewColumn
                             DisplayMemberBinding="{Binding CostNumber}"
-                            Header="费用金额" />
+                            Header="{DynamicResource CP_Cost}" />
                         <GridViewColumn
                             DisplayMemberBinding="{Binding CostNote}"
-                            Header="费用说明" />
+                            Header="{DynamicResource CP_CostNote}" />
                         <GridViewColumn
                             DisplayMemberBinding="{Binding ShouldDate}"
-                            Header="填写时间" />
+                            Header="{DynamicResource CP_Time}" />
 
                     </GridView>
                 </ListView.View>

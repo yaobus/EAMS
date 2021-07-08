@@ -118,6 +118,21 @@
     <s:String x:Key="AC_CuId">课程ID</s:String>
 
 
+    <s:String x:Key="CP_MajName">专业信息</s:String>
+    <s:String x:Key="CP_MajPay">该专业需要交纳的费用</s:String>
+    <s:String x:Key="CP_Department">学院</s:String>
+    <s:String x:Key="CP_System">系部</s:String>
+    <s:String x:Key="CP_Major">专业</s:String>
+    <s:String x:Key="CP_CostInfo">费用信息</s:String>
+    <s:String x:Key="CP_CostType">费用类型</s:String>
+    <s:String x:Key="CP_Cost">金额</s:String>
+    <s:String x:Key="CP_CostNote">费用说明</s:String>
+    <s:String x:Key="CP_Time">填报时间</s:String>
+    <s:String x:Key="CP_CostSum">费用合计</s:String>
+    <s:String x:Key="CP_Add">添加费用信息</s:String>
+    <s:String x:Key="CP_AddTip">添加费用信息到当前专业</s:String>
+    <s:String x:Key="CP_Index">序号</s:String>
+    <s:String x:Key="CP_MajId">专业ID</s:String>
 
 
 
