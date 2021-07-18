@@ -444,8 +444,6 @@ namespace EducationalAdministrationManagementSystem.UserPlan
                     MessageBox.Show("费用信息不完整,请检查！");
                 }
 
-
-
             }
             else
             {
@@ -453,15 +451,11 @@ namespace EducationalAdministrationManagementSystem.UserPlan
             }
 
 
-
-
-
-
-
-
         }
 
-
+        /// <summary>
+        /// 清空编辑框
+        /// </summary>
         private void ClearDate()
         {
             CostNameTextBox.Text = null;
@@ -469,6 +463,30 @@ namespace EducationalAdministrationManagementSystem.UserPlan
             CostTextBox.Text = null;
             CostNoteTextBox.Text = null;
             DatePicker.Text = null;
+        }
+
+
+
+        //TODO 加载选中费用信息
+        /// <summary>
+        /// 加载选中的费用信息到编辑框（费用信息一旦生成，无法再次编辑及删除）
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CostShouldListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ViewMode.ViewMode.CostShouldViewMode costShould = CostShouldListView.SelectedItem as ViewMode.ViewMode.CostShouldViewMode;
+            
+            if (costShould!=null)
+            {
+                CostNameTextBox.Text = costShould.CostName;
+                CostTypeCombobox.Text = costShould.CostType;
+                CostTextBox.Text = costShould.CostNumber.ToString();
+                CostNoteTextBox.Text = costShould.CostNote;
+                DatePicker.Text = costShould.ShouldDate;
+            }
+
+
         }
     }
 }
