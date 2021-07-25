@@ -97,5 +97,39 @@
     <s:String x:Key="AP_Save">Save record</s:String>
     <s:String x:Key="AP_SaveTip">Save this record being edited</s:String>
 
+    <s:String x:Key="AC_CuInfo">Course Information</s:String>
+    <s:String x:Key="AC_ALList">List of all courses</s:String>
+    <s:String x:Key="AC_CuName">Course name</s:String>
+    <s:String x:Key="AC_CuNum">Course Number</s:String>
+    <s:String x:Key="AC_BookName">Textbook name</s:String>
+    <s:String x:Key="AC_BookAuthor">Editor</s:String>
+    <s:String x:Key="AC_BookPress">publisher</s:String>
+    <s:String x:Key="AC_BookNote">Remarks</s:String>
+    <s:String x:Key="AC_Del">Delete Course</s:String>
+    <s:String x:Key="AC_New">New Course</s:String>
+    <s:String x:Key="AC_Save">Save course</s:String>
+    <s:String x:Key="AC_Deltip">Delete current course</s:String>
+    <s:String x:Key="AC_NewTip">Create a new course</s:String>
+    <s:String x:Key="AC_SaveTip">Save the currently edited course</s:String>
+    <s:String x:Key="AC_Index">Serial number</s:String>
+    <s:String x:Key="AC_CuId">Course ID</s:String>
+
+
+    <s:String x:Key="CP_MajName">Professional Information</s:String>
+    <s:String x:Key="CP_MajPay">Fees to be paid for this major</s:String>
+    <s:String x:Key="CP_Department">College</s:String>
+    <s:String x:Key="CP_System">Department</s:String>
+    <s:String x:Key="CP_Major">Major</s:String>
+    <s:String x:Key="CP_CostInfo">Cost information</s:String>
+    <s:String x:Key="CP_CostType">Cost type</s:String>
+    <s:String x:Key="CP_Cost">Amount</s:String>
+    <s:String x:Key="CP_CostNote">Cost description</s:String>
+    <s:String x:Key="CP_Time">Time of filling</s:String>
+    <s:String x:Key="CP_CostSum">Cost total</s:String>
+    <s:String x:Key="CP_Add">Add cost information</s:String>
+    <s:String x:Key="CP_AddTip">Add fee information to current major</s:String>
+    <s:String x:Key="CP_Index">Serial number</s:String>
+    <s:String x:Key="CP_MajId">Professional ID</s:String>
+
 
 </ResourceDictionary>
